@@ -1,0 +1,8 @@
+apiVersion: av.it.pt/v1
+kind: NetworkSliceProfile
+metadata:
+  name: 5gasp-low
+spec:
+  network-slice:
+    name: 5gasp
+    profile: 5GASPLow
