@@ -35,7 +35,7 @@ spec:
                     timestamp:
                       type: string
                     result:
-                      type: object
+                      type: string
                       additionalProperties: true
                 note:
                   type: string
