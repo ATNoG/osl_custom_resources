@@ -5,6 +5,8 @@ from kubernetes.client.models.v1_pod import V1Pod
 from kubernetes.client.models.v1_container_status import V1ContainerStatus
 import time
 
+from network_slice_profile_cr_handler import NetworkSliceProfileCRHandler
+from itav_network_slice_manager import ITAvNetworkSliceManager
 from config import Config
 
 
@@ -45,11 +47,18 @@ def watch_network_slice_profile_resources(v1: client.CoreV1Api, custom_api: clie
     """Watch all custom resources in all namespaces"""
     logger.info(f"Watching all custom resources of type {Config.cr_group}/{Config.cr_version}/{Config.cr_plural} across all namespaces")
     w = watch.Watch()
+
+    # Slice Profile Handler
+    network_slice_profile_cr_handler = NetworkSliceProfileCRHandler(
+        core_api=v1,
+        custom_objects_api=custom_api,
+        slice_manager=ITAvNetworkSliceManager(Config.slice_manager_base_url)
+    )
     
     # Use CustomObjectsApi to list and watch custom resources at the cluster level
     while True:
         for event in w.stream(custom_api.list_cluster_custom_object, Config.cr_group, Config.cr_version, Config.cr_plural, timeout_seconds=10):
-            logger.info(f"Event: {event}")
+            network_slice_profile_cr_handler.process_event(event)
         time.sleep(Config.interval)
         
 
