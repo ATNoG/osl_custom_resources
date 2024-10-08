@@ -866,13 +866,13 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
                     },
                     "value": {
-                        "value": "0",
+                        "value": "DISABLED",
                         "alias": "DISABLED"
                     }
                 },
@@ -883,13 +883,13 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
                     },
                     "value": {
-                        "value": "1",
+                        "value": "ENABLED",
                         "alias": "ENABLED"
                     }
                 }
@@ -1055,13 +1055,13 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
                     },
                     "value": {
-                        "value": "0",
+                        "value": "LOCKED",
                         "alias": "LOCKED"
                     }
                 },
@@ -1072,13 +1072,13 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
                     },
                     "value": {
-                        "value": "2",
+                        "value": "SHUTTINGDOWN",
                         "alias": "SHUTTINGDOWN"
                     }
                 },
@@ -1089,13 +1089,13 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
                     },
                     "value": {
-                        "value": "1",
+                        "value": "UNLOCKED",
                         "alias": "UNLOCKED"
                     }
                 }
