@@ -1,0 +1,100 @@
+module _3gpp-ns-nrm-common {
+  yang-version 1.1;
+  namespace urn:3gpp:sa5:_3gpp-ns-nrm-common;
+  prefix ns3cmn3gpp;
+
+  // import _3gpp-common-subnetwork { prefix subnet3gpp; }
+  // import _3gpp-common-yang-types { prefix types3gpp; }
+  // import _3gpp-common-top { prefix top3gpp; }
+
+  organization "3GPP SA5";
+  contact 
+    "https://www.3gpp.org/DynaReport/TSG-WG--S5--officials.htm?Itemid=464";
+  description "Common network slice definitions";
+  reference "3GPP TS 28.541
+    Management and orchestration; 
+    5G Network Resource Model (NRM);
+    Information model definitions for network slice NRM (chapter 6)
+    ";
+
+  revision 2021-07-16 { reference CR-0566 ; } 
+  revision 2021-05-17 {
+    description "Introduction of Common Data types";
+    reference "CR-0485";
+  }
+  grouping XLThptGrp {
+    list servAttrCom {
+      description "This list represents the common properties of service 
+        requirement related attributes.";
+      reference "GSMA NG.116 corresponding to Attribute categories, 
+        tagging and exposure";
+      config false;
+      key idx;
+      max-elements 1;
+      leaf idx {
+        description "Synthetic index for the element.";
+        type uint32;
+      }
+      uses ServAttrComGrp;
+    }
+    leaf guaThpt {
+      description "This attribute describes the guaranteed data rate.";
+      type uint64;
+      units kbits/s;
+    }
+    leaf maxThpt {
+      description "This attribute describes the maximum data rate.";
+      type uint64;
+      units kbits/s;
+    }
+  }
+  typedef Tagging-enum {
+    type enumeration {
+      enum performance;
+      enum function;
+      enum operation;
+    }
+  }
+  typedef Exposure-enum {
+    type enumeration {
+      enum API;
+      enum KPI;
+    }
+  }
+  typedef Category-enum {
+    type enumeration {
+      enum character;
+      enum scalability;
+    }
+  }
+  typedef Support-enum {
+    type enumeration {
+      enum NOT_SUPPORTED;
+      enum SUPPORTED;
+    }
+  }
+  grouping ServAttrComGrp {
+    leaf category {
+      description "This attribute specifies the category of a service 
+        requirement/attribute of GST";
+      type Category-enum;
+      config false;
+    }
+    leaf-list tagging {
+      description "This attribute specifies the tagging of a service 
+        requirement/attribute of GST in character category";
+      when "../category = 'character'";
+      type Tagging-enum;
+      config false;
+    }
+    leaf exposure {
+      description "This attribute specifies exposure mode of a service 
+        requirement/attribute of GST";
+      type Exposure-enum;
+      config false;
+    }
+  }
+  typedef DeterminCommAvailability {
+    type Support-enum;
+  } 
+}

@@ -1,0 +1,1533 @@
+{
+    "isBundle": null,
+    "description": "My 3GPPP Network Slice",
+    "lifecycleStatus": "In design",
+    "name": "My 3GPPP Network Slice",
+    "validFor": {
+        "endDateTime": "2043-12-31T23:59:59.999Z",
+        "startDateTime": "2024-01-01T00:00:00.001Z"
+    },
+    "version": "0.1.0",
+    "serviceSpecCharacteristic": [
+        {
+            "name": "Max. Number Of UEs",
+            "configurable": true,
+            "description": "The maximum number of UEs that may simultaneously access the network slice instance.",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "regex": null,
+            "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Max. Packet Size : Maximum Size",
+            "configurable": true,
+            "description": "This parameter specifies the maximum packet size\n        supported by the network slice\n(Unit: bytes)",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "S-NSSAI : SST",
+            "configurable": true,
+            "description": "Slice/Service Type.\nValues 0 to 127 belong to standardized SST range and are defined in 3GPP TS 23.501. Values 128 to 255 belong to operator-specific range.",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "regex": null,
+            "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Id",
+            "configurable": true,
+            "description": "The ID of the Network Slice",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "regex": null,
+            "valueType": "TEXT",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Deterministic Communication : Periodicity List",
+            "configurable": true,
+            "description": "This parameter provides a list of periodicities supported by the network slice.\nThis parameter must be present when the “Availability” is set to Supported.\nThe various periodicities should be expressed as \"Period#1,Period#2,Period#3\".\n(Units: seconds)",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "TEXT",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Reliability",
+            "configurable": true,
+            "description": "An attribute specifies in the context of network layer packet transmissions, percentage value of the amount of sent network layer packets successfully delivered to a given system entity within the time constraint required by the targeted service, divided by the total number of sent network layer packets.",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "TEXT",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "V2X Communication Model : V2X Mode",
+            "configurable": true,
+            "description": "An attribute specifies whether or not the V2X \n        communication mode is supported by the network slice.",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "ENUM",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "NOT_SUPPORTED",
+                        "alias": "NOT_SUPPORTED"
+                    }
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "SUPPORTED_BY_NR",
+                        "alias": "SUPPORTED_BY_NR"
+                    }
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Network Slice Subnet Ref (DNN)",
+            "configurable": true,
+            "description": "DN of Network Slice Subnet relating to the Network Slice instance",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "regex": null,
+            "valueType": "TEXT",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Term Density : Density",
+            "configurable": true,
+            "description": "An attribute specifies the overall user density over \n        the coverage area of the network slice.\n(Unit: users/km2)",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Survival Time",
+            "configurable": true,
+            "description": "An attribute specifies the time that an application consuming a communication service may continue without an anticipated message.",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "TEXT",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "UL Throughput Per Slice : Guaranteed Throughput",
+            "configurable": true,
+            "description": "This attribute defines achievable data rate of the network slice in uplink that is available ubiquitously across the coverage area of the slice.\n(Unit: kbits/s)",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "DL Throughput Per Slice : Guaranteed Throughput",
+            "configurable": true,
+            "description": "This attribute defines achievable data rate of the network slice in downlink that is available ubiquitously across the coverage area of the slice.\n(Unit: kbits/s)",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "S-NSSAI : SD",
+            "configurable": true,
+            "description": "Slice Differentiator. If not needed, the value can be set to FFFFFF.",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "TEXT",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "PLMN : MCC",
+            "configurable": true,
+            "description": "The mobile country code consists of three decimal digits, The first digit of the mobile country code identifies the geographic region (the digits 1 and 8 are not used). Pattern '[02-79][0-9][0-9]'",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "regex": null,
+            "valueType": "TEXT",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "PLMN : MNC",
+            "configurable": true,
+            "description": "The mobile network code consists of two or three decimal digits (for example: MNC of 001 is not the same as MNC of 01.\nPattern: [0-9][0-9][0-9]|[0-9][0-9]",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "regex": null,
+            "valueType": "TEXT",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "SSPEC_GRAPH_NOTATION",
+            "configurable": false,
+            "description": "SSPEC_GRAPH_NOTATION",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "regex": null,
+            "valueType": "LONGTEXT",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": true,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": "N/A",
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": null,
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "blockdiag {default_textcolor = white;\r\ndefault_fontsize = 12;\r\n\r\n\"7e3eca19-befa-4f63-985e-015e82562f58\" [ label = \"3GPP Network Slice to TMF Characteristic\", color = \"#2596be\"]; }",
+                        "alias": "SSPEC_GRAPH_NOTATION"
+                    }
+                },
+                {
+                    "isDefault": true,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": "N/A",
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": null,
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "blockdiag {default_textcolor = white;\r\ndefault_fontsize = 12;\r\n\r\n\"7e3eca19-befa-4f63-985e-015e82562f58\" [ label = \"3GPP Network Slice to TMF Characteristic\", color = \"#2596be\"]; }",
+                        "alias": "SSPEC_GRAPH_NOTATION"
+                    }
+                },
+                {
+                    "isDefault": true,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": "N/A",
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": null,
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "blockdiag {default_textcolor = white;\r\ndefault_fontsize = 12;\r\n\r\n\"7e3eca19-befa-4f63-985e-015e82562f58\" [ label = \"3GPP Network Slice to TMF Characteristic\", color = \"#2596be\"]; }",
+                        "alias": "SSPEC_GRAPH_NOTATION"
+                    }
+                },
+                {
+                    "isDefault": true,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": "N/A",
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": null,
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "blockdiag {default_textcolor = white;\r\ndefault_fontsize = 12;\r\n\r\n\"7e3eca19-befa-4f63-985e-015e82562f58\" [ label = \"3GPP Network Slice to TMF Characteristic\", color = \"#2596be\"]; }",
+                        "alias": "SSPEC_GRAPH_NOTATION"
+                    }
+                }
+            ],
+            "validFor": null
+        },
+        {
+            "name": "Delay Tolerance : Support",
+            "configurable": true,
+            "description": "An attribute specifies the properties of service delivery \n        flexibility, especially for the vertical services that are not \n        chasing a high system performance.",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "ENUM",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "NOT_SUPPORTED",
+                        "alias": "NOT_SUPPORTED"
+                    }
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "SUPPORTED",
+                        "alias": "SUPPORTED"
+                    }
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Coverage Area",
+            "configurable": true,
+            "description": "A list of TrackingAreas where the NSI can be selected.\nThe TACs should be splitted with ',' \nExample: 0x1234,0x5678\nRange for each TAC: 0...16777215",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "regex": null,
+            "valueType": "TEXT",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "UE Speed",
+            "configurable": true,
+            "description": "An attribute specifies the maximum speed (in km/hour) supported by the network slice at which a defined QoS can be achieved.\n(Units: km/h)",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "KPI Monitoring : KPI List",
+            "configurable": true,
+            "description": "Represents performance monitoring.\nAn attribute specifies the name list of KQIs and KPIs available  for performance monitoring.\nThe various periodicities should be expressed as \"KQI#1,KPI#1,KPI#2\".\n",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "TEXT",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Resource Sharing Level",
+            "configurable": true,
+            "description": "Specifies whether the resources to be allocated to the network slice instance may be shared with another network slice instance(s).",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "ENUM",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "NOT_SHARED",
+                        "alias": "NOT_SHARED"
+                    }
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "SHARED",
+                        "alias": "SHARED"
+                    }
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Operational State",
+            "configurable": true,
+            "description": "The operational state of the network slice instance. It describes whether or not the resource is installed and working.",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "ENUM",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "0",
+                        "alias": "DISABLED"
+                    }
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "1",
+                        "alias": "ENABLED"
+                    }
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Availability",
+            "configurable": true,
+            "description": "he availability requirement for a network slice instance, expressed as a percentage.",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "DL Throughput Per UE : Maximum Throughput",
+            "configurable": true,
+            "description": "This attribute defines data rate supported by the network slice per UE\n(Unit: kbits/s)",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Jitter",
+            "configurable": true,
+            "description": "An attribute specifies the deviation from the desired value to the actual value when assessing time parameters.\n(Units: microseconds)",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "UL Throughput Per UE : Maximum Throughput",
+            "configurable": true,
+            "description": "This attribute defines data rate supported by the network slice per UE\n(Unit: kbits/s)",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Max. UL Data Volume",
+            "configurable": true,
+            "description": "Stage2 issue: Not defined in 28.541. XML and YAML says \"string\"",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "TEXT",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Administrative State",
+            "configurable": true,
+            "description": "The administrative state of the network slice instance. It describes the permission to use or prohibition against  using the instance, imposed through the OAM services.",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "ENUM",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": true,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "0",
+                        "alias": "LOCKED"
+                    }
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "2",
+                        "alias": "SHUTTINGDOWN"
+                    }
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "1",
+                        "alias": "UNLOCKED"
+                    }
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "UE Mobility Level",
+            "configurable": true,
+            "description": "The mobility level of UE accessing the network slice instance.",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "ENUM",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "FULLY_MOBILITY",
+                        "alias": "FULLY_MOBILITY"
+                    }
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "NOMADIC",
+                        "alias": "NOMADIC"
+                    }
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "RESTRICTED_MOBILITY",
+                        "alias": "RESTRICTED_MOBILITY"
+                    }
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "STATIONARY",
+                        "alias": "STATIONARY"
+                    }
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Max. DL Data Volume",
+            "configurable": true,
+            "description": "Stage2 issue: Not defined in 28.541. XML and YAML says \"string\"",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "TEXT",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "SST",
+            "configurable": true,
+            "description": "Values 0 to 127 belong to standardized SST range and are defined in 3GPP TS 23.501. Values 128 to 255 belong to operator-specific range.",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "regex": null,
+            "valueType": "TEXT",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Max. Number Of PDU Sessions: Number of PDU Sessions",
+            "configurable": true,
+            "description": "Represents the maximum number of \n        concurrent PDU sessions supported by the network slice",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Activity Factor",
+            "configurable": true,
+            "description": "An attribute specifies the percentage value of the \n        amount of simultaneous active UEs to the total number of UEs where \n        active means the UEs are exchanging data with the network\n(Units: decimal) ",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "FLOAT",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "NB-IoT : Support",
+            "configurable": true,
+            "description": "An attribute specifies whether NB-IoT is supported in the RAN in the Network Slice",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "ENUM",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "NOT_SUPPORTED",
+                        "alias": "NOT_SUPPORTED"
+                    }
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "SUPPORTED",
+                        "alias": "SUPPORTED"
+                    }
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Latency",
+            "configurable": true,
+            "description": "The packet transmission latency (milliseconds) through the RAN, CN, and TN part of 5G network, used to evaluate utilization performance of the end-to-end network slice instance.\nUnit: milliseconds",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "regex": null,
+            "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": null
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "User Management Open : Support",
+            "configurable": true,
+            "description": "An attribute specifies whether or not the network slice \n        supports the capability for the NSC to manage their users or groups \n        of users' network services and corresponding requirements.",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "ENUM",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "NOT_SUPPORTED",
+                        "alias": "NOT_SUPPORTED"
+                    }
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "INTEGER",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "SUPPORTED",
+                        "alias": "SUPPORTED"
+                    }
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "UL Throughput Per Slice : Maximum Throughput",
+            "configurable": true,
+            "description": "This attribute defines achievable data rate of the network slice in uplink that is available ubiquitously across the coverage area of the slice.\n(Unit: kbits/s)",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Deterministic Communication : Availability",
+            "configurable": true,
+            "description": null,
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "ENUM",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "NOT_SUPPORTED",
+                        "alias": "NOT_SUPPORTED"
+                    }
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "SUPPORTED",
+                        "alias": "SUPPORTED"
+                    }
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "DL Throughput Per UE : Guaranteed Throughput",
+            "configurable": true,
+            "description": "This attribute defines data rate supported by the network slice per UE\n(Unit: kbits/s)",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "DL Throughput Per Slice : Maximum Throughput",
+            "configurable": true,
+            "description": "This attribute defines achievable data rate of the network slice in downlink that is available ubiquitously across the coverage area of the slice.\n(Unit: kbits/s)",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "UL Throughput Per UE : Guaranteed Throughput",
+            "configurable": true,
+            "description": "This attribute defines data rate supported by the network slice per UE\n(Unit: kbits/s)",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        }
+    ]
+}

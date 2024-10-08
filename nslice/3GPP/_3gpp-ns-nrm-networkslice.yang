@@ -1,0 +1,80 @@
+module _3gpp-ns-nrm-networkslice {
+  yang-version 1.1;
+  namespace urn:3gpp:sa5:_3gpp-ns-nrm-networkslice;
+  prefix ns3gpp;
+
+  import _3gpp-common-subnetwork { prefix subnet3gpp; }
+  import _3gpp-common-yang-types { prefix types3gpp; }
+  import _3gpp-common-top { prefix top3gpp; }
+
+  include _3gpp-ns-nrm-serviceprofile;
+
+  organization "3GPP SA5";
+  contact 
+    "https://www.3gpp.org/DynaReport/TSG-WG--S5--officials.htm?Itemid=464";
+  description "A network slice instance in a 5G network.";
+  reference "3GPP TS 28.541
+    Management and orchestration; 
+    5G Network Resource Model (NRM);
+    Information model definitions for network slice NRM (chapter 6)
+    ";
+
+  revision 2022-07-27 { reference CR-0769; }
+  revision 2020-06-02 {
+    reference "CR-0485, CR-0508";
+  }
+
+  revision 2020-02-19 {
+    description "Introduction of YANG definitions for network slice NRM";
+    reference "CR-0458";
+  }
+
+  grouping NetworkSliceGrp {
+    description "Represents the NetworkSlice IOC";
+    leaf operationalState {
+      description "The operational state of the network slice instance. 
+        It describes whether or not the resource is installed 
+        and working.";
+      type types3gpp:OperationalState;
+      config false;
+      mandatory true;
+    }
+
+    leaf administrativeState {
+      description "The administrative state of the network slice instance. 
+        It describes the permission to use or prohibition against 
+        using the instance, imposed through the OAM services.";
+      type types3gpp:AdministrativeState;
+      default LOCKED;
+    }
+
+    list serviceProfileList {
+      description "A list of service profiles supported by the network 
+        slice instance.";
+      key serviceProfileId;
+      uses ServiceProfileGrp;
+    }
+
+    leaf networkSliceSubnetRef {
+      type types3gpp:DistinguishedName; 
+      config false;
+      mandatory true;
+      description "DN of NetworkSliceSubnet relating to the 
+        NetworkSlice instance";
+    }
+  }
+
+  augment /subnet3gpp:SubNetwork {  
+    list NetworkSlice {
+      description "Represents the properties of a network slice instance in 
+        a 5G network.";
+      key id;
+      
+      container attributes {
+        uses NetworkSliceGrp;
+      }
+      
+      uses top3gpp:Top_Grp;
+    }
+  }
+}
