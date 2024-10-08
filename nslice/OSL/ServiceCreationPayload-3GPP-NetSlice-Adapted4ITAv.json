@@ -199,38 +199,9 @@
             "maxCardinality": 1,
             "minCardinality": 0,
             "regex": null,
-            "valueType": "TEXT",
+            "valueType": "FLOAT",
             "serviceSpecCharRelationship": [],
-            "serviceSpecCharacteristicValue": [
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "TEXT",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                },
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "TEXT",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                }
-            ],
+            "serviceSpecCharacteristicValue": [],
             "validFor": {
                 "endDateTime": "2043-12-31T23:59:59.999Z",
                 "startDateTime": "2024-01-01T00:00:00.001Z"
