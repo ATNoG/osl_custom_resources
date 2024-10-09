@@ -1,8 +1,8 @@
 {
     "isBundle": null,
-    "description": "My 3GPPP Network Slice",
+    "description": "My 3GPPP Network Slice - Adapted For ITAv",
     "lifecycleStatus": "In design",
-    "name": "My 3GPPP Network Slice",
+    "name": "3GPPP Network Slice for ITAv",
     "validFor": {
         "endDateTime": "2043-12-31T23:59:59.999Z",
         "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -19,64 +19,7 @@
             "regex": null,
             "valueType": "INTEGER",
             "serviceSpecCharRelationship": [],
-            "serviceSpecCharacteristicValue": [
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "INTEGER",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                },
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "INTEGER",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                },
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "INTEGER",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                },
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "INTEGER",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                }
-            ],
+            "serviceSpecCharacteristicValue": [],
             "validFor": {
                 "endDateTime": "2043-12-31T23:59:59.999Z",
                 "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -124,50 +67,37 @@
             "regex": null,
             "valueType": "TEXT",
             "serviceSpecCharRelationship": [],
-            "serviceSpecCharacteristicValue": [
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "TEXT",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                },
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "TEXT",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                }
-            ],
+            "serviceSpecCharacteristicValue": [],
             "validFor": {
                 "endDateTime": "2043-12-31T23:59:59.999Z",
                 "startDateTime": "2024-01-01T00:00:00.001Z"
             }
         },
         {
-            "name": "Deterministic Communication : Periodicity List",
+            "name": "Deterministic Communication : UL : Periodicity",
             "configurable": true,
-            "description": "This parameter provides a list of periodicities supported by the network slice.\nThis parameter must be present when the “Availability” is set to Supported.\nThe various periodicities should be expressed as \"Period#1,Period#2,Period#3\".\n(Units: seconds)",
+            "description": "This parameter provides the UL periodicity supported by the network slice.\nThis parameter must be present when the \u201cAvailability\u201d is set to Supported.\n(Units: ms)",
             "extensible": null,
             "maxCardinality": 1,
             "minCardinality": 0,
             "regex": null,
-            "valueType": "TEXT",
+            "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Deterministic Communication : DL : Periodicity",
+            "configurable": true,
+            "description": "This parameter provides the DL periodicity supported by the network slice.\nThis parameter must be present when the \u201cAvailability\u201d is set to Supported.\n(Units: ms)",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "INTEGER",
             "serviceSpecCharRelationship": [],
             "serviceSpecCharacteristicValue": [],
             "validFor": {
@@ -183,38 +113,9 @@
             "maxCardinality": 1,
             "minCardinality": 0,
             "regex": null,
-            "valueType": "TEXT",
+            "valueType": "FLOAT",
             "serviceSpecCharRelationship": [],
-            "serviceSpecCharacteristicValue": [
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "TEXT",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                },
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "TEXT",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                }
-            ],
+            "serviceSpecCharacteristicValue": [],
             "validFor": {
                 "endDateTime": "2043-12-31T23:59:59.999Z",
                 "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -255,7 +156,7 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -281,36 +182,7 @@
             "regex": null,
             "valueType": "TEXT",
             "serviceSpecCharRelationship": [],
-            "serviceSpecCharacteristicValue": [
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "TEXT",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                },
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "TEXT",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                }
-            ],
+            "serviceSpecCharacteristicValue": [],
             "validFor": {
                 "endDateTime": "2043-12-31T23:59:59.999Z",
                 "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -326,36 +198,7 @@
             "regex": null,
             "valueType": "INTEGER",
             "serviceSpecCharRelationship": [],
-            "serviceSpecCharacteristicValue": [
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "INTEGER",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                },
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "INTEGER",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                }
-            ],
+            "serviceSpecCharacteristicValue": [],
             "validFor": {
                 "endDateTime": "2043-12-31T23:59:59.999Z",
                 "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -371,36 +214,7 @@
             "regex": null,
             "valueType": "TEXT",
             "serviceSpecCharRelationship": [],
-            "serviceSpecCharacteristicValue": [
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "TEXT",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                },
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "TEXT",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                }
-            ],
+            "serviceSpecCharacteristicValue": [],
             "validFor": {
                 "endDateTime": "2043-12-31T23:59:59.999Z",
                 "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -432,36 +246,7 @@
             "regex": null,
             "valueType": "INTEGER",
             "serviceSpecCharRelationship": [],
-            "serviceSpecCharacteristicValue": [
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "INTEGER",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                },
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "INTEGER",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                }
-            ],
+            "serviceSpecCharacteristicValue": [],
             "validFor": {
                 "endDateTime": "2043-12-31T23:59:59.999Z",
                 "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -493,64 +278,7 @@
             "regex": null,
             "valueType": "TEXT",
             "serviceSpecCharRelationship": [],
-            "serviceSpecCharacteristicValue": [
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "TEXT",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                },
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "TEXT",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                },
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "TEXT",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                },
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "TEXT",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                }
-            ],
+            "serviceSpecCharacteristicValue": [],
             "validFor": {
                 "endDateTime": "2043-12-31T23:59:59.999Z",
                 "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -566,64 +294,7 @@
             "regex": null,
             "valueType": "TEXT",
             "serviceSpecCharRelationship": [],
-            "serviceSpecCharacteristicValue": [
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "TEXT",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                },
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "TEXT",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                },
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "TEXT",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                },
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "TEXT",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                }
-            ],
+            "serviceSpecCharacteristicValue": [],
             "validFor": {
                 "endDateTime": "2043-12-31T23:59:59.999Z",
                 "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -664,7 +335,7 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -797,13 +468,13 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
                     },
                     "value": {
-                        "value": "0",
+                        "value": "DISABLED",
                         "alias": "DISABLED"
                     }
                 },
@@ -814,13 +485,13 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
                     },
                     "value": {
-                        "value": "1",
+                        "value": "ENABLED",
                         "alias": "ENABLED"
                     }
                 }
@@ -840,36 +511,7 @@
             "regex": null,
             "valueType": "INTEGER",
             "serviceSpecCharRelationship": [],
-            "serviceSpecCharacteristicValue": [
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "INTEGER",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                },
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "INTEGER",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                }
-            ],
+            "serviceSpecCharacteristicValue": [],
             "validFor": {
                 "endDateTime": "2043-12-31T23:59:59.999Z",
                 "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -901,36 +543,7 @@
             "regex": null,
             "valueType": "INTEGER",
             "serviceSpecCharRelationship": [],
-            "serviceSpecCharacteristicValue": [
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "INTEGER",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                },
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "INTEGER",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                }
-            ],
+            "serviceSpecCharacteristicValue": [],
             "validFor": {
                 "endDateTime": "2043-12-31T23:59:59.999Z",
                 "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -986,13 +599,13 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
                     },
                     "value": {
-                        "value": "0",
+                        "value": "LOCKED",
                         "alias": "LOCKED"
                     }
                 },
@@ -1003,13 +616,13 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
                     },
                     "value": {
-                        "value": "2",
+                        "value": "SHUTTINGDOWN",
                         "alias": "SHUTTINGDOWN"
                     }
                 },
@@ -1020,13 +633,13 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
                     },
                     "value": {
-                        "value": "1",
+                        "value": "UNLOCKED",
                         "alias": "UNLOCKED"
                     }
                 }
@@ -1220,7 +833,7 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -1237,7 +850,7 @@
             }
         },
         {
-            "name": "Latency",
+            "name": "Latency : DL",
             "configurable": true,
             "description": "The packet transmission latency (milliseconds) through the RAN, CN, and TN part of 5G network, used to evaluate utilization performance of the end-to-end network slice instance.\nUnit: milliseconds",
             "extensible": null,
@@ -1246,36 +859,23 @@
             "regex": null,
             "valueType": "INTEGER",
             "serviceSpecCharRelationship": [],
-            "serviceSpecCharacteristicValue": [
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "INTEGER",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                },
-                {
-                    "isDefault": false,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": null,
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": "INTEGER",
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": null
-                }
-            ],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Latency : UL",
+            "configurable": true,
+            "description": "The packet transmission latency (milliseconds) through the RAN, CN, and TN part of 5G network, used to evaluate utilization performance of the end-to-end network slice instance.\nUnit: milliseconds",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "regex": null,
+            "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
             "validFor": {
                 "endDateTime": "2043-12-31T23:59:59.999Z",
                 "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -1316,7 +916,7 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -1349,7 +949,58 @@
             }
         },
         {
-            "name": "Deterministic Communication : Availability",
+            "name": "Deterministic Communication : UL : Availability",
+            "configurable": true,
+            "description": null,
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "ENUM",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "NOT_SUPPORTED",
+                        "alias": "NOT_SUPPORTED"
+                    }
+                },
+                {
+                    "isDefault": false,
+                    "rangeInterval": null,
+                    "regex": null,
+                    "unitOfMeasure": null,
+                    "valueFrom": null,
+                    "valueTo": null,
+                    "valueType": "TEXT",
+                    "validFor": {
+                        "endDateTime": "2043-12-31T23:59:59.999Z",
+                        "startDateTime": "2024-01-01T00:00:00.001Z"
+                    },
+                    "value": {
+                        "value": "SUPPORTED",
+                        "alias": "SUPPORTED"
+                    }
+                }
+            ],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Deterministic Communication : DL : Availability",
             "configurable": true,
             "description": null,
             "extensible": null,
@@ -1440,6 +1091,38 @@
             "minCardinality": 0,
             "regex": null,
             "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "Priority Label",
+            "configurable": true,
+            "description": "Specifies a label that consumer would assign a value on an instance of network slice subnet. The management system takes the value of this attribute into account. The effect of this attribute value to the subject managed entity is not standardized",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "INTEGER",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        },
+        {
+            "name": "N6 Protection",
+            "configurable": true,
+            "description": "An attribute which includes required security functions and corresponding rules of each function for network slice N6 interface protection.\nThe input should be a JSON string",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "regex": null,
+            "valueType": "TEXT",
             "serviceSpecCharRelationship": [],
             "serviceSpecCharacteristicValue": [],
             "validFor": {

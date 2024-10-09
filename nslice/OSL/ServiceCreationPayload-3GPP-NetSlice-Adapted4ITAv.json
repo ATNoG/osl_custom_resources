@@ -242,7 +242,7 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -617,88 +617,6 @@
             }
         },
         {
-            "name": "SSPEC_GRAPH_NOTATION",
-            "configurable": false,
-            "description": "SSPEC_GRAPH_NOTATION",
-            "extensible": null,
-            "maxCardinality": 1,
-            "minCardinality": 1,
-            "regex": null,
-            "valueType": "LONGTEXT",
-            "serviceSpecCharRelationship": [],
-            "serviceSpecCharacteristicValue": [
-                {
-                    "isDefault": true,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": "N/A",
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": null,
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": {
-                        "value": "blockdiag {default_textcolor = white;\r\ndefault_fontsize = 12;\r\n\r\n\"7e3eca19-befa-4f63-985e-015e82562f58\" [ label = \"3GPP Network Slice to TMF Characteristic\", color = \"#2596be\"]; }",
-                        "alias": "SSPEC_GRAPH_NOTATION"
-                    }
-                },
-                {
-                    "isDefault": true,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": "N/A",
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": null,
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": {
-                        "value": "blockdiag {default_textcolor = white;\r\ndefault_fontsize = 12;\r\n\r\n\"7e3eca19-befa-4f63-985e-015e82562f58\" [ label = \"3GPP Network Slice to TMF Characteristic\", color = \"#2596be\"]; }",
-                        "alias": "SSPEC_GRAPH_NOTATION"
-                    }
-                },
-                {
-                    "isDefault": true,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": "N/A",
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": null,
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": {
-                        "value": "blockdiag {default_textcolor = white;\r\ndefault_fontsize = 12;\r\n\r\n\"7e3eca19-befa-4f63-985e-015e82562f58\" [ label = \"3GPP Network Slice to TMF Characteristic\", color = \"#2596be\"]; }",
-                        "alias": "SSPEC_GRAPH_NOTATION"
-                    }
-                },
-                {
-                    "isDefault": true,
-                    "rangeInterval": null,
-                    "regex": null,
-                    "unitOfMeasure": "N/A",
-                    "valueFrom": null,
-                    "valueTo": null,
-                    "valueType": null,
-                    "validFor": {
-                        "endDateTime": "2043-12-31T23:59:59.999Z",
-                        "startDateTime": "2024-01-01T00:00:00.001Z"
-                    },
-                    "value": {
-                        "value": "blockdiag {default_textcolor = white;\r\ndefault_fontsize = 12;\r\n\r\n\"7e3eca19-befa-4f63-985e-015e82562f58\" [ label = \"3GPP Network Slice to TMF Characteristic\", color = \"#2596be\"]; }",
-                        "alias": "SSPEC_GRAPH_NOTATION"
-                    }
-                }
-            ],
-            "validFor": null
-        },
-        {
             "name": "Delay Tolerance : Support",
             "configurable": true,
             "description": "An attribute specifies the properties of service delivery \n        flexibility, especially for the vertical services that are not \n        chasing a high system performance.",
@@ -733,7 +651,7 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -866,13 +784,13 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
                     },
                     "value": {
-                        "value": "0",
+                        "value": "DISABLED",
                         "alias": "DISABLED"
                     }
                 },
@@ -883,13 +801,13 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
                     },
                     "value": {
-                        "value": "1",
+                        "value": "ENABLED",
                         "alias": "ENABLED"
                     }
                 }
@@ -1055,13 +973,13 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
                     },
                     "value": {
-                        "value": "0",
+                        "value": "LOCKED",
                         "alias": "LOCKED"
                     }
                 },
@@ -1072,13 +990,13 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
                     },
                     "value": {
-                        "value": "2",
+                        "value": "SHUTTINGDOWN",
                         "alias": "SHUTTINGDOWN"
                     }
                 },
@@ -1089,13 +1007,13 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
                     },
                     "value": {
-                        "value": "1",
+                        "value": "UNLOCKED",
                         "alias": "UNLOCKED"
                     }
                 }
@@ -1289,7 +1207,7 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -1402,7 +1320,7 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -1608,7 +1526,7 @@
             "maxCardinality": 1,
             "minCardinality": 0,
             "regex": null,
-            "valueType": "Text",
+            "valueType": "TEXT",
             "serviceSpecCharRelationship": [],
             "serviceSpecCharacteristicValue": [],
             "validFor": {
