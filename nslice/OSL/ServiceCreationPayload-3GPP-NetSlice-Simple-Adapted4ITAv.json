@@ -1,0 +1,29 @@
+{
+    "isBundle": null,
+    "description": "My 3GPPP Network Slice - Simple - Adapted For ITAv",
+    "lifecycleStatus": "In design",
+    "name": "Simple 3GPPP Network Slice for ITAv",
+    "validFor": {
+        "endDateTime": "2043-12-31T23:59:59.999Z",
+        "startDateTime": "2024-01-01T00:00:00.001Z"
+    },
+    "version": "0.1.0",
+    "serviceSpecCharacteristic": [
+        {
+            "name": "Id",
+            "configurable": true,
+            "description": "The ID of the Network Slice",
+            "extensible": null,
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "regex": null,
+            "valueType": "TEXT",
+            "serviceSpecCharRelationship": [],
+            "serviceSpecCharacteristicValue": [],
+            "validFor": {
+                "endDateTime": "2043-12-31T23:59:59.999Z",
+                "startDateTime": "2024-01-01T00:00:00.001Z"
+            }
+        }
+    ]
+}
