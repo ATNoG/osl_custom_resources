@@ -156,7 +156,7 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -301,19 +301,6 @@
             }
         },
         {
-            "name": "SSPEC_GRAPH_NOTATION",
-            "configurable": false,
-            "description": "SSPEC_GRAPH_NOTATION",
-            "extensible": null,
-            "maxCardinality": 1,
-            "minCardinality": 1,
-            "regex": null,
-            "valueType": "LONGTEXT",
-            "serviceSpecCharRelationship": [],
-            "serviceSpecCharacteristicValue": [],
-            "validFor": null
-        },
-        {
             "name": "Delay Tolerance : Support",
             "configurable": true,
             "description": "An attribute specifies the properties of service delivery \n        flexibility, especially for the vertical services that are not \n        chasing a high system performance.",
@@ -348,7 +335,7 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -846,7 +833,7 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -929,7 +916,7 @@
                     "unitOfMeasure": null,
                     "valueFrom": null,
                     "valueTo": null,
-                    "valueType": "INTEGER",
+                    "valueType": "TEXT",
                     "validFor": {
                         "endDateTime": "2043-12-31T23:59:59.999Z",
                         "startDateTime": "2024-01-01T00:00:00.001Z"
@@ -1135,7 +1122,7 @@
             "maxCardinality": 1,
             "minCardinality": 0,
             "regex": null,
-            "valueType": "Text",
+            "valueType": "TEXT",
             "serviceSpecCharRelationship": [],
             "serviceSpecCharacteristicValue": [],
             "validFor": {

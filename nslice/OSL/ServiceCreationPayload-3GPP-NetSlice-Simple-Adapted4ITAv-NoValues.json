@@ -15,7 +15,7 @@
             "description": "The ID of the Network Slice",
             "extensible": null,
             "maxCardinality": 1,
-            "minCardinality": 1,
+            "minCardinality": 0,
             "regex": null,
             "valueType": "TEXT",
             "serviceSpecCharRelationship": [],

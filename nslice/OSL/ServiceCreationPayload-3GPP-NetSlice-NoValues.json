@@ -285,19 +285,6 @@
             }
         },
         {
-            "name": "SSPEC_GRAPH_NOTATION",
-            "configurable": false,
-            "description": "SSPEC_GRAPH_NOTATION",
-            "extensible": null,
-            "maxCardinality": 1,
-            "minCardinality": 1,
-            "regex": null,
-            "valueType": "LONGTEXT",
-            "serviceSpecCharRelationship": [],
-            "serviceSpecCharacteristicValue": [],
-            "validFor": null
-        },
-        {
             "name": "Delay Tolerance : Support",
             "configurable": true,
             "description": "An attribute specifies the properties of service delivery \n        flexibility, especially for the vertical services that are not \n        chasing a high system performance.",

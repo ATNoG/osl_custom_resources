@@ -1,6 +1,6 @@
 import json
 
-input_file = 'ServiceCreationPayload-3GPP-NetSlice-Adapted4ITAv.json'
+input_file = 'ServiceCreationPayload-3GPP-NetSlice.json'
 output_file = input_file.split(".json")[0] + "-NoValues.json"
 
 # Open and read the JSON file
