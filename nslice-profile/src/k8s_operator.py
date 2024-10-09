@@ -81,3 +81,4 @@ if __name__ == '__main__':
     v1 = kubeconfig()
     custom_api = client.CustomObjectsApi()
     main()
+    

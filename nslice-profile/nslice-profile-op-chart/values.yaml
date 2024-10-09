@@ -1,7 +1,7 @@
 kubernetesClusterDomain: cluster.local
 deployment:
   image:
-    repository: atnog-harbor.av.it.pt/rdireito/nslice-profile-operator
+    repository: atnog-harbor.av.it.pt/atnog/nslice-profile-op
     tag: latest
   replicas: 1
 customResource:
