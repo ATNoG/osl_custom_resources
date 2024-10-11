@@ -1,0 +1,17 @@
+kubernetesClusterDomain: cluster.local
+deployment:
+  image:
+    repository: atnog-harbor.av.it.pt/atnog/nslice-profile-op
+    tag: latest
+  replicas: 1
+customResource:
+  group: av.it.pt
+  singular: network-slice-profile
+  plural: network-slice-profiles
+  kind: NetworkSliceProfile
+  shortNames:
+    - nsp
+  version: v1
+pollingInterval: 10
+logLevel: INFO
+sliceManagerBaseUrl: https://webhook.site/acaa8378-bab1-49e2-8c3a-d0f3d235df91

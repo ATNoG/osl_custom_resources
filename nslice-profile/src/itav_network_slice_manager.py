@@ -22,6 +22,8 @@ class ITAvNetworkSliceManager:
         }
 
         try:
+            self.logger.info(f"Timestamp Before Network Slice Enforcement Request")
+
             response = requests.request(
                 "PATCH",
                 f"{self.base_url}/productOrder/{profile}/patch",
@@ -35,7 +37,7 @@ class ITAvNetworkSliceManager:
                 timeout=10
             )
             
-            self.logger.info(f"After Request")
+            self.logger.info(f"Timestamp After Network Slice Enforcement Request")
             
             if response.status_code == 200:
                 result["success"] = True

@@ -1,0 +1,50 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: {{ .Values.customResource.plural }}.{{ .Values.customResource.group }}
+spec:
+  group: {{ quote .Values.customResource.group }}
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                network-slice: 
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    profile:
+                      type: string
+                  required:
+                    - name
+                    - profile
+                profile-enforcement:
+                  type: object
+                  properties:
+                    success:
+                      type: boolean
+                    enforced-profile:
+                      type: string
+                    timestamp:
+                      type: string
+                    result:
+                      type: string
+                note:
+                  type: string
+              required:
+                - network-slice  
+            status:
+              type: object
+  scope: Namespaced
+  names:
+    plural: {{ quote .Values.customResource.plural }}
+    singular: {{ quote .Values.customResource.singular }}
+    kind: {{ quote .Values.customResource.kind }}
+    shortNames: {{ toYaml .Values.customResource.shortNames | nindent 6 }}
