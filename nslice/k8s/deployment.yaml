@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nslice-op-deployment
+  namespace: nslice-op
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nslice-op
+  template:
+    metadata:
+      labels:
+        app: nslice-op
+    spec:
+      serviceAccountName: nslice-op
+      containers:
+        - name: nslice-op-container
+          image: atnog-harbor.av.it.pt/atnog/nslice-op
+          command: ["python", "k8s_operator.py"] 
+          env:
+            - name: LOG_LEVEL
+              value: "INFO"
+            - name: SLICE_MANAGER_BASE_URL
+              value: "https://webhook.site/49747093-e0ec-4951-b7e5-4e166687c58f"
+            - name: CR_GROUP
+              value: "av.it.pt"
+            - name: CR_VERSION
+              value: "v1"
+            - name: CR_PLURAL
+              value: "networkslices"
+            - name: INTERVAL
+              value: "10"
+      restartPolicy: Always

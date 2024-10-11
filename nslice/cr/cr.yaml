@@ -34,12 +34,12 @@ spec:
     guaranteedThroughput: 240  # Guaranteed UL throughput per UE in kbit/s
     maximumThroughput: 600  # Maximum UL throughput per UE in kbit/s
   # Optional Throughput for the entire slice (if required, uncomment)
-  # dlThroughputPerSlice:
-  #   guaranteedThroughput: 1000  # Guaranteed DL throughput per slice in kbit/s
-  #   maximumThroughput: 2000  # Maximum DL throughput per slice in kbit/s
-  # ulThroughputPerSlice:
-  #   guaranteedThroughput: 1000  # Guaranteed UL throughput per slice in kbit/s
-  #   maximumThroughput: 2000  # Maximum UL throughput per slice in kbit/s
+  dlThroughputPerSlice:
+    guaranteedThroughput: 1000  # Guaranteed DL throughput per slice in kbit/s
+    maximumThroughput: 2000  # Maximum DL throughput per slice in kbit/s
+  ulThroughputPerSlice:
+    guaranteedThroughput: 1000  # Guaranteed UL throughput per slice in kbit/s
+    maximumThroughput: 2000  # Maximum UL throughput per slice in kbit/s
   termDensity: 10  # UE density per antenna
   maxNumberOfPduSessions: 20  # Max PDU sessions per UPF (range 0-20 or 255)
   maxNumberOfUes: 25  # Maximum number of UEs

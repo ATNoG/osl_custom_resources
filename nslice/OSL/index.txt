@@ -1,0 +1,2 @@
+1. ServiceCreationPayload-3GPP-NetSlice-NoValues.json -> OSL Service that maps a 3GPP Network Slice, according to its YANG models
+2. ServiceCreationPayload-3GPP-NetSlice-Adapted4ITAv-NoValues -> OSL Servicethat maps a 3GPP Network Slice, according to what is required by ITAv's Network Slice Manager

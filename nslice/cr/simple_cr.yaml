@@ -1,0 +1,6 @@
+apiVersion: av.it.pt/v1
+kind: NetworkSlice
+metadata:
+  name: slice-manager
+spec:
+  id: "SliceManager"
