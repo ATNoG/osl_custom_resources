@@ -22,93 +22,131 @@ spec:
             spec:
               type: object
               properties:
-                id:
-                  type: string
-                administrativeState:
-                  type: string
-                operationalState:
-                  type: string
-                coverageArea:
-                  type: string
-                sstSnssai:
+                network-slice: 
                   type: object
                   properties:
-                    sst:
-                      type: integer
-                    sd:
+                    id:
                       type: string
-                dnn:
-                  type: string
-                priorityLabel:
-                  type: integer
-                ueMobilityLevel:
-                  type: string
-                reliability:
-                  type: number
-                maxPacketSize:
-                  type: object
-                  properties:
-                    maximumSize:
-                      type: integer
-                latency:
-                  type: object
-                  properties:
-                    dl:
-                      type: integer
-                    ul:
-                      type: integer
-                delayToleranceSupport:
-                  type: string
-                deterministicCommunication:
-                  type: object
-                  properties:
-                    dl:
+                    administrativeState:
+                      type: string
+                    operationalState:
+                      type: string
+                    coverageArea:
+                      type: string
+                    sstSnssai:
                       type: object
                       properties:
-                        availability:
-                          type: string
-                        periodicity:
+                        sst:
                           type: integer
-                    ul:
+                        sd:
+                          type: string
+                    dnn:
+                      type: string
+                    priorityLabel:
+                      type: integer
+                    ueMobilityLevel:
+                      type: string
+                    reliability:
+                      type: number
+                    maxPacketSize:
                       type: object
                       properties:
-                        availability:
-                          type: string
-                        periodicity:
+                        maximumSize:
                           type: integer
-                dlThroughputPerUE:
+                    latency:
+                      type: object
+                      properties:
+                        dl:
+                          type: integer
+                        ul:
+                          type: integer
+                    delayToleranceSupport:
+                      type: string
+                    deterministicCommunication:
+                      type: object
+                      properties:
+                        dl:
+                          type: object
+                          properties:
+                            availability:
+                              type: string
+                            periodicity:
+                              type: integer
+                        ul:
+                          type: object
+                          properties:
+                            availability:
+                              type: string
+                            periodicity:
+                              type: integer
+                    dlThroughputPerUE:
+                      type: object
+                      properties:
+                        guaranteedThroughput:
+                          type: integer
+                        maximumThroughput:
+                          type: integer
+                    ulThroughputPerUE:
+                      type: object
+                      properties:
+                        guaranteedThroughput:
+                          type: integer
+                        maximumThroughput:
+                          type: integer
+                    dlThroughputPerSlice:
+                      type: object
+                      properties:
+                        guaranteedThroughput:
+                          type: integer
+                        maximumThroughput:
+                          type: integer
+                    ulThroughputPerSlice:
+                      type: object
+                      properties:
+                        guaranteedThroughput:
+                          type: integer
+                        maximumThroughput:
+                          type: integer
+                    termDensity:
+                      type: integer
+                    maxNumberOfPduSessions:
+                      type: integer
+                    maxNumberOfUes:
+                      type: integer
+                    n6Protection:
+                      type: string
+                network-slice-enforcement:
                   type: object
                   properties:
-                    guaranteedThroughput:
+                    retryOnFail:
+                      type: boolean
+                      description: "Indicates if the system should retry upon failure."
+                      default: false
+                    currentRetries:
                       type: integer
-                    maximumThroughput:
+                      description: "The number of retries attempted so far."
+                    maxRetries:
                       type: integer
-                ulThroughputPerUE:
-                  type: object
-                  properties:
-                    guaranteedThroughput:
+                      description: "The maximum number of retries allowed."
+                      default: 0
+                    waitTimeBeforeRetrying:
                       type: integer
-                    maximumThroughput:
-                      type: integer
-                dlThroughputPerSlice:
-                  type: object
-                  properties:
-                    guaranteedThroughput:
-                      type: integer
-                    maximumThroughput:
-                      type: integer
-                ulThroughputPerSlice:
-                  type: object
-                  properties:
-                    guaranteedThroughput:
-                      type: integer
-                    maximumThroughput:
-                      type: integer
-                termDensity:
-                  type: integer
-                maxNumberOfPduSessions:
-                  type: integer
-                maxNumberOfUes:
-                  type: integer
-                n6Protection:
-                  type: string
+                      description: "The time in seconds to wait before each retry."
+                      default: 30
+                    success:
+                      type: boolean
+                      description: "If the Network Slice enforcement was successful"
+                    sliceManagerResponse:
+                      type: string
+                      description: "Response message (json str) from the slice manager upon last attempt."
+                      default: "Pending"
+                    lastOperationTimestamp:
+                      type: string
+                      format: date-time
+                      description: "Timestamp of the last operation attempt."
+                    firstOperationTimestamp:
+                      type: string
+                      format: date-time
+                      description: "Timestamp of the first operation attempt."
+              required:
+                - network-slice
