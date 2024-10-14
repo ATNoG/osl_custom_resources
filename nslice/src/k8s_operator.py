@@ -38,38 +38,14 @@ def kubeconfig() -> client.CoreV1Api:
     api = client.CoreV1Api()
     return api
 
-
-def watch_network_slice_profile_resources(v1: client.CoreV1Api, custom_api: client.CustomObjectsApi) -> None:
-    """Watch all custom resources in all namespaces"""
-    logger.info(f"Watching all custom resources of type {Config.cr_group}/{Config.cr_version}/{Config.cr_plural} across all namespaces")
-    w = watch.Watch()
-
-
-    # Use CustomObjectsApi to list and watch custom resources at the cluster level
-    while True:
-        for event in w.stream(custom_api.list_cluster_custom_object, Config.cr_group, Config.cr_version, Config.cr_plural, timeout_seconds=10):
-            logger.info(f"Event: {event}")
-        time.sleep(Config.interval)
-        
-
-#@kopf.on.startup()
-#def on_startup(**kwargs):
-#    """On startup, watch pods"""
-#    logger.info("Starting up")
-#    watch_network_slice_profile_resources(v1, custom_api)    
-#    
-#@kopf.on.timer(Config.cr_group, Config.cr_version, Config.cr_plural,interval=Config.interval)
-#def on_timer(**kwargs):
-#    """On timer, watch pods"""
-#    logger.info("Starting up on timmer")
-#    watch_network_slice_profile_resources(v1, custom_api)
-
-
 @kopf.on.create(Config.cr_group, Config.cr_version, Config.cr_plural)
-def create_fn(spec, logger, **kwargs):
+def on_create_network_slice(spec, meta, logger, **kwargs):
+    nslice_cr_handler.process_nslice_add_event(spec, meta)
 
-    nslice_cr_handler.logger = logger
-    nslice_cr_handler.process_nslice_add_event(spec)
+@kopf.on.update(Config.cr_group, Config.cr_version, Config.cr_plural)
+def on_update_network_slice(spec, old, new, diff, meta, logger, **kwargs):
+    nslice_cr_handler.process_nslice_update_event(spec, meta)
+
 
 
 
@@ -80,6 +56,7 @@ if __name__ == '__main__':
     v1 = kubeconfig()
     custom_api = client.CustomObjectsApi()
     nslice_cr_handler = NSliceCRHandler(
-        ITAvNetworkSliceManager("http://10.10.10.10:1000")
+        ITAvNetworkSliceManager("http://10.255.28.141:8000"),
+        custom_api
     )
     main()

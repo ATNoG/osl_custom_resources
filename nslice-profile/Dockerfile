@@ -7,7 +7,6 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /opt/app
 
-COPY ./src/requirements.txt /opt/app
+COPY ./src /opt/app
 RUN pip3 install -r requirements.txt
 
-COPY ./src /opt/app

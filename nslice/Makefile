@@ -57,6 +57,6 @@ create-cr:
 	kubectl apply -f ./cr/cr.yaml
 
 delete-cr:
-	kubectl delete -f ./cr || true
+	kubectl delete -f ./cr/cr.yaml || true
 
 

@@ -125,6 +125,7 @@ spec:
                     currentRetries:
                       type: integer
                       description: "The number of retries attempted so far."
+                      dafault: 0
                     maxRetries:
                       type: integer
                       description: "The maximum number of retries allowed."

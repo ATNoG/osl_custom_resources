@@ -1,8 +1,13 @@
 from datetime import datetime, timezone
+from datetime import datetime, timezone
 import requests
 import json
+
 from config import Config
 
+
+# Set up logging
+logger = Config.setup_logging()
 
 class ITAvNetworkSliceManager:
     
@@ -12,48 +17,47 @@ class ITAvNetworkSliceManager:
     def __init__(self, base_url: str):
         self.base_url = base_url
 
-    #def enforce_profile(self, profile: str):
-    #    self.logger.info(f"Will Enforce the Profile: {profile}")
-    #    result = {
-    #        "success": None,
-    #        "enforced-profile": None,
-    #        "timestamp": None,
-    #        "result": None
-    #    }
-#
-    #    try:
-    #        response = requests.request(
-    #            "PATCH",
-    #            f"{self.base_url}/productOrder/{profile}/patch",
-    #            headers= {
-    #                'Content-Type': 'application/json'
-    #            },
-    #            data= json.dumps({
-    #                "administrative_state": "UNLOCKED",
-    #                "operational_state": "ENABLED"
-    #            }),
-    #            timeout=10
-    #        )
-    #        
-    #        self.logger.info(f"After Request")
-    #        
-    #        if response.status_code == 200:
-    #            result["success"] = True
-    #            result["enforced-profile"] = profile
-    #            result["timestamp"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S %Z")
-    #            result["result"] = str(response.json())
-#
-    #        else:
-    #            result["success"] = False
-    #            result["enforced-profile"] = profile
-    #            result["timestamp"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S %Z")
-    #            result["result"] = str(response.json())
-#
-    #    except Exception as exception:
-    #        self.logger.error(f"Exception: {exception}")
-    #        result["success"] = False
-    #        result["enforced-profile"] = profile
-    #        result["timestamp"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S %Z")
-    #        result["result"] = str(exception)
-#
-    #    return result
+    def enforce_network_slice(self, payload: dict):
+
+        logger.info(
+            "Will Enforce Network Slice with characteristics: "
+            f"{json.dumps(payload, indent=4)}"
+        )
+
+        enforcement_result = {
+            "currentRetries": 1,
+            "success": None,
+            "sliceManagerResponse": None,
+            "lastOperationTimestamp": datetime.now(timezone.utc).isoformat(),
+        }
+
+        try:
+            response = requests.request(
+                "POST",
+                f"{self.base_url}/productOrder/post",
+                headers= {
+                    'Content-Type': 'application/json'
+                },
+                data= json.dumps(payload),
+                timeout=10
+            )
+                        
+            if response.status_code == 201:
+                enforcement_result["success"] = True
+                enforcement_result["sliceManagerResponse"] = str(response.json())
+            else:
+                enforcement_result["success"] = False
+                resenforcement_resultult["sliceManagerResponse"] = str(response.json())
+
+        except Exception as exception:
+            logger.error(f"An Exception Ocurred: {exception}")
+            enforcement_result["success"] = False
+            enforcement_result["sliceManagerResponse"] = str(exception)
+
+        logger.info(
+            "Slice Manager API responded with status code: "
+            f"{response.status_code}. Result: "
+            f"{json.dumps(enforcement_result, indent=4)}"
+        )
+
+        return enforcement_result
