@@ -26,6 +26,7 @@ class N6Protection(BaseModel):
 # Define the ProductOrder model with all fields optional
 class ProductOrder(BaseModel):
     id: Optional[str] = None
+    name: Optional[str] = None
     administrative_state: Optional[str] = None
     operational_state: Optional[str] = None
     coverage_area: Optional[List[str]] = None
@@ -62,8 +63,6 @@ async def create_product_order(
     product_order: ProductOrder,
     authorization: Optional[str] = Header(None)
 ):
-
-
     # Convert product_order to a dictionary, including empty lists and dicts but excluding None
     # Cast non-list and non-dict values to strings
     filtered_product_order = {
@@ -71,6 +70,18 @@ async def create_product_order(
         for key, value in product_order.dict().items()
         if value is not None or isinstance(value, (list, dict))
     }
+
+    # If name == error -> return error
+    name = filtered_product_order["name"] \
+        if filtered_product_order["name"] \
+        else filtered_product_order["id"]
+
+    if name.lower() == "error":
+        return JSONResponse(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            content={"description": "Error", "reason": "uknown"}
+        )
+
 
     # Transform coverage_area to the required dictionary format with a fixed description
     coverage_area = filtered_product_order.get("coverage_area", [])
