@@ -72,9 +72,9 @@ async def create_product_order(
     }
 
     # If name == error -> return error
-    name = filtered_product_order["name"] \
-        if filtered_product_order["name"] \
-        else filtered_product_order["id"]
+    name = filtered_product_order.get("name") \
+        if filtered_product_order.get("name") \
+        else filtered_product_order.get("id")
 
     if name.lower() == "error":
         return JSONResponse(
