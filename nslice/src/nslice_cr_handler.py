@@ -20,42 +20,42 @@ class NSliceCRHandler:
         self.slice_manager = slice_manager
         self.custom_objects_api = custom_objects_api
         
-    def process_nslice_add_event(self, spec: dict, metadata: dict) -> None:
+    def process_nslice_event(
+        self, event: str, spec: dict, metadata: dict
+        ) -> None:
 
         cr_name = metadata['name']
         cr_namespace = metadata['namespace']
 
-        logger.info(
+        if event == "ADD":
+            logger.info(
+                f"A resource with group: {Config.cr_group}, "
+                f"version: {Config.cr_version}, plural: {Config.cr_plural} "
+                f"was CREATED. This resource is named '{cr_name}' and was "
+                f"deployed in namespace '{cr_namespace}'. Will now parse this "
+                "resource and  request the creation of a Network Slice via "
+                f"ITAvNetworkSliceManager (url={self.slice_manager.base_url})"
+            )
+        elif event == "UPDATE":
+            logger.info(
             f"A resource with group: {Config.cr_group}, "
             f"version: {Config.cr_version}, plural: {Config.cr_plural} "
-            f"was CREATED. This resource is named '{cr_name}' and was deployed "
-            f"in namespace '{cr_namespace}'. Will now parse this resource and "
-            "request the creation of a Network Slice via "
-            f"ITAvNetworkSliceManager (url={self.slice_manager.base_url})"
-        )
-
-        # Make request to the Slice Manager
-        enforcement_result = self.slice_manager.enforce_network_slice(
-            self._spec_params_to_nslice_create_payload(spec)
-        )
-
-        self.process_network_slice_enforcement(
-            cr_namespace, cr_name, enforcement_result
-        )
-
-    def process_nslice_update_event(self, spec: dict, metadata: dict) -> None:
-        
-        cr_name = metadata['name']
-        cr_namespace = metadata['namespace']
-
-        logger.info(
-            f"A resource with group: {Config.cr_group}, "
-            f"version: {Config.cr_version}, plural: {Config.cr_plural} "
-            f"was UPDATED. This resource is named '{cr_name}' and was deployed "
-            f"in namespace '{cr_namespace}'. "
+            f"was UPDATED. This resource is named '{cr_name}' and was "
+            f"deployed in namespace '{cr_namespace}'. "
             f"Resource: {spec}"
         )
 
+        # Make request to the Slice Manager
+        should_apply_cr, enforcement_result = self.slice_manager \
+            .enforce_network_slice(
+                spec, self._spec_params_to_nslice_create_payload(spec)
+            )
+
+        if should_apply_cr:
+            self.process_network_slice_enforcement(
+                cr_namespace, cr_name, enforcement_result
+            )
+        
     
     def _spec_params_to_nslice_create_payload(self, spec):
 
@@ -199,7 +199,7 @@ class NSliceCRHandler:
     def process_network_slice_enforcement(
         self, namespace: str, name: str, enforcement_result: dict
         ) -> None:
-        
+
         patch = {
             "spec": {
                 "network-slice-enforcement": enforcement_result

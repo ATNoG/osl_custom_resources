@@ -40,11 +40,11 @@ def kubeconfig() -> client.CoreV1Api:
 
 @kopf.on.create(Config.cr_group, Config.cr_version, Config.cr_plural)
 def on_create_network_slice(spec, meta, logger, **kwargs):
-    nslice_cr_handler.process_nslice_add_event(spec, meta)
+    nslice_cr_handler.process_nslice_event("ADD", spec, meta)
 
 @kopf.on.update(Config.cr_group, Config.cr_version, Config.cr_plural)
 def on_update_network_slice(spec, old, new, diff, meta, logger, **kwargs):
-    nslice_cr_handler.process_nslice_update_event(spec, meta)
+    nslice_cr_handler.process_nslice_event("UPDATE", spec, meta)
 
 
 

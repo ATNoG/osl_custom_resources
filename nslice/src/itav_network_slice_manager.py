@@ -2,6 +2,7 @@ from datetime import datetime, timezone
 from datetime import datetime, timezone
 import requests
 import json
+import time
 
 from config import Config
 
@@ -17,19 +18,79 @@ class ITAvNetworkSliceManager:
     def __init__(self, base_url: str):
         self.base_url = base_url
 
-    def enforce_network_slice(self, payload: dict):
+    def enforce_network_slice(self, spec: dict, payload: dict):
+
+        logger.info("Checking if the network slice should be enforced...")
+
+        enforcement_data = spec["network-slice-enforcement"]
+
+        # If Network Slice was already enforced, return
+        if enforcement_data.get("success"):
+            logger.info("Network Slice already enforced")
+            return False, None
+        
+
+        # If it is the first time this operation is running, enforce
+        if not enforcement_data.get("firstOperationTimestamp"):
+            
+            first_operation_ts = datetime.now(timezone.utc).isoformat()
+
+            enforcement_result = {
+                "currentRetries": 0,
+                "firstOperationTimestamp": first_operation_ts,
+                "lastOperationTimestamp": first_operation_ts
+            }
+            
+            self.enforce_network_slice_on_manager(
+                payload, enforcement_result
+            )
+
+            return True, enforcement_result
+
+        # If it is not the first time, check if it needs to be updated
+        elif enforcement_data["retryOnFail"]:
+            if enforcement_data["maxRetries"] > enforcement_data.get(
+                "currentRetries"
+            ):
+                logger.info(
+                    "Will retry to enforce the Network Slice in "
+                    f"{enforcement_data['waitTimeBeforeRetrying']} seconds"
+                )
+
+                time.sleep(enforcement_data['waitTimeBeforeRetrying'])
+
+                enforcement_result = {
+                    "currentRetries": enforcement_data["currentRetries"] + 1,
+                    "lastOperationTimestamp": datetime.now(timezone.utc)
+                        .isoformat()
+                }
+                
+                self.enforce_network_slice_on_manager(
+                    payload, enforcement_result
+                )
+                return True, enforcement_result
+
+            else:
+                logger.info(
+                    "Will not retry again to enforce the Network Slice. "
+                    "Maximum amount of retries has been reached."
+                )
+        else:
+            logger.info(
+                    "No retries are allowed to enforce the Network Slice."
+                )
+            
+        return False, None
+        
+    
+    def enforce_network_slice_on_manager(
+            self, payload: dict, enforcement_result: dict
+        ):
 
         logger.info(
-            "Will Enforce Network Slice with characteristics: "
+            "Will Try to Enforce Network Slice with Characteristics: "
             f"{json.dumps(payload, indent=4)}"
         )
-
-        enforcement_result = {
-            "currentRetries": 1,
-            "success": None,
-            "sliceManagerResponse": None,
-            "lastOperationTimestamp": datetime.now(timezone.utc).isoformat(),
-        }
 
         try:
             response = requests.request(
@@ -47,17 +108,21 @@ class ITAvNetworkSliceManager:
                 enforcement_result["sliceManagerResponse"] = str(response.json())
             else:
                 enforcement_result["success"] = False
-                resenforcement_resultult["sliceManagerResponse"] = str(response.json())
+                enforcement_result["sliceManagerResponse"] = str(response.json())
+
+            logger.info(
+                "Slice Manager API responded with status code: "
+                f"{response.status_code}. Result: "
+                f"{json.dumps(enforcement_result, indent=4)}"
+            )
 
         except Exception as exception:
             logger.error(f"An Exception Ocurred: {exception}")
             enforcement_result["success"] = False
-            enforcement_result["sliceManagerResponse"] = str(exception)
+            enforcement_result["sliceManagerResponse"] = f"An exception occurred: {exception}"
 
-        logger.info(
-            "Slice Manager API responded with status code: "
-            f"{response.status_code}. Result: "
-            f"{json.dumps(enforcement_result, indent=4)}"
-        )
 
-        return enforcement_result
+            logger.error(
+                f"An exception occurred: {exception}. Result: "
+                f"{json.dumps(enforcement_result, indent=4)}"
+            )
