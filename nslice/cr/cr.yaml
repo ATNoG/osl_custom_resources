@@ -48,5 +48,5 @@ spec:
 
   network-slice-enforcement:
     retryOnFail: true
-    maxRetries: 10
-    waitTimeBeforeRetrying: 30
+    maxRetries: 5
+    waitTimeBeforeRetrying: 10

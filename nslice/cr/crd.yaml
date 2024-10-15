@@ -117,15 +117,16 @@ spec:
                       type: string
                 network-slice-enforcement:
                   type: object
+                  additionalProperties: true
                   properties:
                     retryOnFail:
                       type: boolean
                       description: "Indicates if the system should retry upon failure."
                       default: false
-                    currentRetries:
-                      type: integer
-                      description: "The number of retries attempted so far."
-                      default: 0
+                #    currentRetries:
+                #      type: integer
+                #      description: "The number of retries attempted so far."
+                #      default: 0
                     maxRetries:
                       type: integer
                       description: "The maximum number of retries allowed."
@@ -134,20 +135,20 @@ spec:
                       type: integer
                       description: "The time in seconds to wait before each retry."
                       default: 30
-                    success:
-                      type: boolean
-                      description: "If the Network Slice enforcement was successful"
-                    sliceManagerResponse:
-                      type: string
-                      description: "Response message (json str) from the slice manager upon last attempt."
-                      default: "Pending"
-                    lastOperationTimestamp:
-                      type: string
-                      format: date-time
-                      description: "Timestamp of the last operation attempt."
-                    firstOperationTimestamp:
-                      type: string
-                      format: date-time
-                      description: "Timestamp of the first operation attempt."
+                #    success:
+                #      type: boolean
+                #      description: "If the Network Slice enforcement was successful"
+                #    sliceManagerResponse:
+                #      type: string
+                #      description: "Response message (json str) from the slice manager upon last attempt."
+                #      default: "Pending"
+                #    lastOperationTimestamp:
+                #      type: string
+                #      format: date-time
+                #      description: "Timestamp of the last operation attempt."
+                #    firstOperationTimestamp:
+                #      type: string
+                #      format: date-time
+                #      description: "Timestamp of the first operation attempt."
               required:
                 - network-slice
