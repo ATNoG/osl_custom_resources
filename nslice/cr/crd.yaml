@@ -138,10 +138,18 @@ spec:
                 #    success:
                 #      type: boolean
                 #      description: "If the Network Slice enforcement was successful"
-                #    sliceManagerResponse:
-                #      type: string
-                #      description: "Response message (json str) from the slice manager upon last attempt."
-                #      default: "Pending"
+                    sliceManagerResponse:
+                      type: object
+                      additionalProperties: true
+                      description: "Response message from the slice manager upon last attempt."
+                      properties:
+                        success:
+                          type: boolean
+                        payload:
+                          type: string
+                        message:
+                          type: string
+
                 #    lastOperationTimestamp:
                 #      type: string
                 #      format: date-time

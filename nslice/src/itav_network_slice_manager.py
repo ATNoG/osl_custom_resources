@@ -105,10 +105,18 @@ class ITAvNetworkSliceManager:
                         
             if response.status_code == 201:
                 enforcement_result["success"] = True
-                enforcement_result["sliceManagerResponse"] = str(response.json())
+                enforcement_result["sliceManagerResponse"] = {
+                    "success": True,
+                    "payload": str(response.json()),
+                    "message": None
+                }
             else:
                 enforcement_result["success"] = False
-                enforcement_result["sliceManagerResponse"] = str(response.json())
+                enforcement_result["sliceManagerResponse"] = {
+                    "success": False,
+                    "payload": str(response.json()),
+                    "message": None
+                }
 
             logger.info(
                 "Slice Manager API responded with status code: "
@@ -119,8 +127,11 @@ class ITAvNetworkSliceManager:
         except Exception as exception:
             logger.error(f"An Exception Ocurred: {exception}")
             enforcement_result["success"] = False
-            enforcement_result["sliceManagerResponse"] = f"An exception occurred: {exception}"
-
+            enforcement_result["sliceManagerResponse"] = {
+                    "success": False,
+                    "payload": str({}),
+                    "message": f"An exception occurred: {exception}"
+                }
 
             logger.error(
                 f"An exception occurred: {exception}. Result: "
