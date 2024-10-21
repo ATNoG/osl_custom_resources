@@ -46,9 +46,6 @@ def on_create_network_slice(spec, meta, logger, **kwargs):
 def on_update_network_slice(spec, old, new, diff, meta, logger, **kwargs):
     nslice_cr_handler.process_nslice_event("UPDATE", spec, meta)
 
-
-
-
 def main():
     kopf.run()
     
@@ -56,7 +53,7 @@ if __name__ == '__main__':
     v1 = kubeconfig()
     custom_api = client.CustomObjectsApi()
     nslice_cr_handler = NSliceCRHandler(
-        ITAvNetworkSliceManager("http://10.255.28.141:8000"),
+        ITAvNetworkSliceManager(Config.slice_manager_base_url),
         custom_api
     )
     main()

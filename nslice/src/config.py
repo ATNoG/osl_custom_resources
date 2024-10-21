@@ -9,7 +9,6 @@ class Config():
     cr_plural = os.getenv('CR_PLURAL')
     # Set up the slice manager
     slice_manager_base_url = os.getenv("SLICE_MANAGER_BASE_URL")
-    interval = float(os.getenv('INTERVAL', 30))
     logger = None
     
     # Logging

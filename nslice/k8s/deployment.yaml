@@ -22,13 +22,11 @@ spec:
             - name: LOG_LEVEL
               value: "INFO"
             - name: SLICE_MANAGER_BASE_URL
-              value: "https://webhook.site/49747093-e0ec-4951-b7e5-4e166687c58f"
+              value: "http://10.255.28.141:8000"
             - name: CR_GROUP
               value: "av.it.pt"
             - name: CR_VERSION
               value: "v1"
             - name: CR_PLURAL
               value: "networkslices"
-            - name: INTERVAL
-              value: "10"
       restartPolicy: Always

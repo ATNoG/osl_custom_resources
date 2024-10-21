@@ -7,7 +7,11 @@ DOCKER_REPOSITORY_TAG = latest
 HELM_CHART_NAME = nslice-op-chart
 REPOSITORY_HOST = atnog-harbor.av.it.pt/atnog
 
+HELM_CHART_NAME = nslice-op-chart
+REPOSITORY_HOST = atnog-harbor.av.it.pt/atnog
+
 KUBECONFIG ?= /etc/rancher/k3s/k3s.yaml 
+
 
 # DOCKER
 
@@ -59,4 +63,21 @@ create-cr:
 delete-cr:
 	kubectl delete -f ./cr/cr.yaml || true
 
+
+# HELM
+helm-package:
+	helm package $(HELM_CHART_NAME)
+
+helm-push:
+	helm push $(HELM_CHART_NAME)-0.1.0.tgz  oci://$(REPOSITORY_HOST)
+
+helm: helm-package helm-push
+
+
+# Deploy Operator
+install-operator:
+	helm install --kubeconfig=$(KUBECONFIG) $(HELM_CHART_NAME) oci://$(REPOSITORY_HOST)/$(HELM_CHART_NAME) --version 0.1.0 --set sliceManagerBaseUrl=http://10.255.28.141:8000 --namespace nslice-op --create-namespace
+
+uninstall-operator:
+	helm uninstall --kubeconfig=$(KUBECONFIG) $(HELM_CHART_NAME) --namespace nslice-op
 
