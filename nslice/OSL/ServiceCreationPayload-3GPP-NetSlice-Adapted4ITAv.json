@@ -1,8 +1,8 @@
 {
     "isBundle": null,
-    "description": "My 3GPPP Network Slice - Adapted For ITAv",
+    "description": "My 3GPPP Network Slice - Adapted For ITAv - Bootstrapped With Net. Slice Config",
     "lifecycleStatus": "In design",
-    "name": "3GPPP Network Slice for ITAv",
+    "name": "My 3GPPP Network Slice - Adapted For ITAv - Bootstrapped With Net. Slice Config",
     "validFor": {
         "endDateTime": "2043-12-31T23:59:59.999Z",
         "startDateTime": "2024-01-01T00:00:00.001Z"
