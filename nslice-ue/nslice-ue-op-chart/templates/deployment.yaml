@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: '{{ include "nslice-ue-op-chart.fullname" . }}-deployment'
+  namespace: {{ .Release.Namespace }}
+  labels:
+  {{- include "nslice-ue-op-chart.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      app: nslice-ue-op
+    {{- include "nslice-ue-op-chart.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: nslice-ue-op
+      {{- include "nslice-ue-op-chart.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - command:
+        - python
+        - k8s_operator.py
+        env:
+        - name: LOG_LEVEL
+          value: {{ quote .Values.logLevel }}
+        - name: SLICE_MANAGER_BASE_URL
+          value: {{ quote .Values.sliceManagerBaseUrl }}
+        - name: CR_GROUP
+          value:  {{ quote .Values.customResource.group }}
+        - name: CR_VERSION
+          value: {{ quote .Values.customResource.version }}
+        - name: CR_PLURAL
+          value: {{ quote .Values.customResource.plural }}
+        - name: KUBERNETES_CLUSTER_DOMAIN
+          value: {{ quote .Values.kubernetesClusterDomain }}
+        image:  '{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag | default .Chart.AppVersion }}'
+        name: nslice-ue-op-container
+        resources: {}
+      restartPolicy: Always
+      serviceAccountName: '{{ include "nslice-ue-op-chart.fullname" . }}-svc-account'

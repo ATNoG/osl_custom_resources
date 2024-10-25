@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nslice-ue-op-deployment
+  namespace: nslice-ue-op
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nslice-ue-op
+  template:
+    metadata:
+      labels:
+        app: nslice-ue-op
+    spec:
+      serviceAccountName: nslice-ue-op
+      containers:
+        - name: nslice-ue-op-container
+          image: atnog-harbor.av.it.pt/atnog/nslice-ue-op
+          command: ["python", "k8s_operator.py"] 
+          env:
+            - name: LOG_LEVEL
+              value: "INFO"
+            - name: SLICE_MANAGER_BASE_URL
+              value: "http://10.255.28.141:8000"
+            - name: CR_GROUP
+              value: "av.it.pt"
+            - name: CR_VERSION
+              value: "v1"
+            - name: CR_PLURAL
+              value: "networkslice-ues"
+      restartPolicy: Always
