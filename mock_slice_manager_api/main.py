@@ -58,6 +58,20 @@ class ProductOrder(BaseModel):
     n6protection: Optional[List[N6Protection]] = []
     kpi: Optional[List[str]] = []
 
+class ProductOrderUE(BaseModel):
+    IMSI: int
+    numIMSIs: int 
+    slice: str 
+    IPV4: str
+    IPV6: str
+    AMDATA: bool
+    DEFAULT: str
+    UEcanSendSNSSAI: str
+    AMBRUP: Optional[int] = None
+    AMBRDW: Optional[int] = None
+
+
+
 @app.post("/productOrder/post")
 async def create_product_order(
     product_order: ProductOrder,
@@ -97,3 +111,27 @@ async def create_product_order(
 
     
     return JSONResponse(status_code=status.HTTP_201_CREATED, content={"description": "Success", "data": filtered_product_order})
+
+
+@app.post("/UE/post")
+async def create_ue(
+    ue: ProductOrderUE,
+    authorization: Optional[str] = Header(None)
+):
+    filtered_ue = {key: value for key, value in ue.dict().items()}
+
+    # If IMSI == -1 -> return error
+    if filtered_ue["IMSI"] == -1:
+        return JSONResponse(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            content={"description": "Error", "reason": "uknown"}
+        )
+        
+    filtered_ue["id"] = 1
+    filtered_ue["operational_state"] = "ENABLED"
+    filtered_ue["SNSSAI"] = "1-222222"
+    filtered_ue["DNN"]: filtered_ue["slice"]
+    filtered_ue["IMSIGroupNAME"] = filtered_ue["slice"] + \
+        str(filtered_ue["IMSI"])
+    
+    return JSONResponse(status_code=status.HTTP_201_CREATED, content={"description": "Created", "data": filtered_ue})
