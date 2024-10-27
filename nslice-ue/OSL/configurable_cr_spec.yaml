@@ -1,0 +1,24 @@
+apiVersion: av.it.pt/v1
+kind: NetworkSliceUE
+metadata:
+  name: network-slice-ue
+spec:
+  network-slice-ue:
+    supi: "%s"
+    requestedNSSAI:
+      sst: %s
+      sd: "%s"
+    defaultNSSAI:
+      sst: %s
+      sd: "%s"
+    dnn: "%s"
+    pduSession:
+      type: "%s"
+    sessionAmbr:
+      uplink: %s
+      downlink: %s
+
+  network-slice-ue-enforcement:
+    retryOnFail: %s
+    maxRetries: %s
+    waitTimeBeforeRetrying: %s
