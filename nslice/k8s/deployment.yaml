@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nslice-op-deployment
-  namespace: nslice-op
+  name: itav-slice-manager-client
 spec:
   replicas: 1
   selector:

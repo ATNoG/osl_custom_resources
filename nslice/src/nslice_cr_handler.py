@@ -187,7 +187,7 @@ class NSliceCRHandler:
         # Remove any keys where the value is None
         payload = {k: v for k, v in payload.items() if v is not None}
 
-        logger.debug(
+        logger.info(
             "JSON Payload for the Slice Manager: "
             f"{json.dumps(payload, indent=4)}"
         )

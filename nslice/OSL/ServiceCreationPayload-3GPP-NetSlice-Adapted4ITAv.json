@@ -1047,7 +1047,7 @@
                         "startDateTime": "2024-01-01T00:00:00.001Z"
                     },
                     "value": {
-                        "value": "FULLY_MOBILITY",
+                        "value": "full_mobility",
                         "alias": "FULLY_MOBILITY"
                     }
                 },
@@ -1064,7 +1064,7 @@
                         "startDateTime": "2024-01-01T00:00:00.001Z"
                     },
                     "value": {
-                        "value": "NOMADIC",
+                        "value": "nomadic",
                         "alias": "NOMADIC"
                     }
                 },
@@ -1081,7 +1081,7 @@
                         "startDateTime": "2024-01-01T00:00:00.001Z"
                     },
                     "value": {
-                        "value": "RESTRICTED_MOBILITY",
+                        "value": "restricted_mobility",
                         "alias": "RESTRICTED_MOBILITY"
                     }
                 },
@@ -1098,7 +1098,7 @@
                         "startDateTime": "2024-01-01T00:00:00.001Z"
                     },
                     "value": {
-                        "value": "STATIONARY",
+                       "value": "stationary",
                         "alias": "STATIONARY"
                     }
                 }
