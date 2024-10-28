@@ -11,6 +11,7 @@ HELM_CHART_NAME = nslice-ue-op-chart
 REPOSITORY_HOST = atnog-harbor.av.it.pt/atnog
 
 KUBECONFIG ?= /etc/rancher/k3s/k3s.yaml 
+NAMESPACE = itav-slice-manager-client
 
 
 # DOCKER
@@ -49,10 +50,10 @@ create-operator:
 	kubectl apply -f ./cr/crd.yaml && kubectl apply -f ./k8s/operator-namespace.yaml && kubectl apply -f ./k8s/
 
 get-operator-pods:
-	kubectl get pods -n nslice-ue-op -l app=nslice-ue-op -o jsonpath="{.items[0].metadata.name}" 
+	kubectl get pods -n $(NAMESPACE) -l app=nslice-ue-op -o jsonpath="{.items[0].metadata.name}" 
 
 get-operator-logs:
-	kubectl logs -f $$(kubectl get pods -n nslice-ue-op  -l app=nslice-ue-op -o jsonpath="{.items[0].metadata.name}") -n nslice-ue-op 
+	kubectl logs -f $$(kubectl get pods -n $(NAMESPACE)  -l app=nslice-ue-op -o jsonpath="{.items[0].metadata.name}") -n $(NAMESPACE) 
 
 delete-operator:
 	kubectl delete -f ./k8s || true
@@ -85,8 +86,8 @@ helm: helm-package helm-push
 
 # Deploy Operator
 install-operator:
-	helm install --kubeconfig=$(KUBECONFIG) $(HELM_CHART_NAME) oci://$(REPOSITORY_HOST)/$(HELM_CHART_NAME) --version 0.1.0 --set sliceManagerBaseUrl=http://10.255.28.141:8000 --namespace nslice-ue-op --create-namespace
+	helm install --kubeconfig=$(KUBECONFIG) $(HELM_CHART_NAME) oci://$(REPOSITORY_HOST)/$(HELM_CHART_NAME) --version 0.1.0 --set sliceManagerBaseUrl=http://10.255.28.141:8000 --namespace $(NAMESPACE) --create-namespace
 
 uninstall-operator:
-	helm uninstall --kubeconfig=$(KUBECONFIG) $(HELM_CHART_NAME) --namespace nslice-ue-op
+	helm uninstall --kubeconfig=$(KUBECONFIG) $(HELM_CHART_NAME) --namespace $(NAMESPACE)
 
