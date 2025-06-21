@@ -2,19 +2,51 @@
 # @Author: Rafael Direito
 # @Date:   2024-10-11 16:29:17
 # @Last Modified by:   Rafael Direito
-# @Last Modified time: 2025-06-21 10:09:16
+# @Last Modified time: 2025-06-21 11:04:06
 # Fully Generated with AI
 
-from fastapi import FastAPI, Header, HTTPException, status, Depends
-from fastapi.security import HTTPBasic, HTTPBasicCredentials
+from fastapi import FastAPI, Header, status, Depends
+from fastapi.security import HTTPBasicCredentials
 from typing import Optional
 from fastapi.responses import JSONResponse
-
 from auth.auth import authenticate
 from schemas import netslice as netslice_schemas
-from schemas import ue as ue_schemas 
+from routers import ue as ue_router
+import logging
 
-app = FastAPI()
+
+# Logger
+logging.basicConfig(
+    format="%(module)-15s:%(levelname)-10s| %(message)s",
+    level=logging.INFO
+)
+
+fast_api_tags_metadata = [
+    {
+        "name": "UE",
+        "description": "Operations related with UEs.",
+    },
+]
+
+fast_api_description = "ITAv's 5G Slice Management API Mock"
+
+
+app = FastAPI(
+    title="Slice Management API Mock",
+    description=fast_api_description,
+    version="0.0.1",
+    contact={
+        "name": "Rafael Direito",
+        "email": "rdireito@av.it.pt",
+    },
+    openapi_tags=fast_api_tags_metadata
+)
+
+app.include_router(ue_router.router, prefix="/UE", tags=["UE"])
+
+
+
+
 
 # Define the N6Protection model with additional optional fields
 #class N6Protection(BaseModel):
@@ -123,26 +155,3 @@ async def create_product_order(
     return JSONResponse(status_code=status.HTTP_201_CREATED, content={"description": "Success", "data": filtered_product_order})
 
 
-@app.post("/UE/post")
-async def create_ue(
-    ue: ue_schemas.UE,
-    authorization: Optional[str] = Header(None),
-    credentials: HTTPBasicCredentials = Depends(authenticate)
-):
-    filtered_ue = {key: value for key, value in ue.dict().items()}
-
-    # If IMSI == -1 -> return error
-    if filtered_ue["IMSI"] == -1:
-        return JSONResponse(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            content={"description": "Error", "reason": "uknown"}
-        )
-        
-    filtered_ue["id"] = 1
-    filtered_ue["operational_state"] = "ENABLED"
-    filtered_ue["SNSSAI"] = "1-222222"
-    filtered_ue["DNN"]: filtered_ue["slice"]
-    filtered_ue["IMSIGroupNAME"] = filtered_ue["slice"] + \
-        str(filtered_ue["IMSI"])
-    
-    return JSONResponse(status_code=status.HTTP_201_CREATED, content={"description": "Created", "data": filtered_ue})
