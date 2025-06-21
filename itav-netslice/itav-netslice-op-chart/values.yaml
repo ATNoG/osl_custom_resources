@@ -1,16 +1,24 @@
+# -*- coding: utf-8 -*-
+# @Author: Rafael Direito
+# @Date:   2024-10-21 15:46:34
+# @Last Modified by:   Rafael Direito
+# @Last Modified time: 2025-06-21 17:15:35
 kubernetesClusterDomain: cluster.local
 deployment:
   image:
-    repository: atnog-harbor.av.it.pt/atnog/nslice-op
+    repository: atnog-harbor.av.it.pt/osl-custom-resources/itav-netslice-op
     tag: latest
   replicas: 1
 customResource:
   group: av.it.pt
-  singular: networkslice
-  plural: networkslices
-  kind: NetworkSlice
+  singular: itav-netslice
+  plural: itav-netslices
+  kind: ITAvNetSlice
   shortNames:
-    - nslice
+    - itav-netslice
   version: v1
 logLevel: INFO
-sliceManagerBaseUrl: http://10.255.28.141:8000
+sliceManager:
+  baseUrl: http://10.255.28.141:8080
+  username: admin
+  password: password

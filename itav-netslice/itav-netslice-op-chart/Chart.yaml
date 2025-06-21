@@ -1,6 +1,11 @@
+# -*- coding: utf-8 -*-
+# @Author: Rafael Direito
+# @Date:   2024-10-21 15:46:34
+# @Last Modified by:   Rafael Direito
+# @Last Modified time: 2025-06-21 17:14:37
 apiVersion: v2
-name: nslice-op-chart
-description: A Helm chart for Kubernetes
+name: itav-netslice-op-chart
+description: A Helm chart for ITAv's Network Slice Operator
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives

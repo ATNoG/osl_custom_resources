@@ -1,52 +1,58 @@
+# -*- coding: utf-8 -*-
+# @Author: Rafael Direito
+# @Date:   2024-10-08 18:54:07
+# @Last Modified by:   Rafael Direito
+# @Last Modified time: 2025-06-21 16:55:24
 apiVersion: av.it.pt/v1
-kind: NetworkSlice
+kind: ITAvNetSlice
+
 metadata:
-  name: slice-manager
+  name: example-netslice
 spec:
-  network-slice:
-    id: "SliceManager"  # Identifier without disallowed characters
-    administrativeState: "UNLOCKED"  # LOCKED - UNLOCKED - SHUTTINGDOWN
-    operationalState: "ENABLED"  # ENABLED - DISABLED
-    coverageArea: "IT"  # List of coverage areas, e.g., ["IT"]
+  itav-netslice:
+    id: "SliceManager" # Identifier without disallowed characters
+    administrativeState: "UNLOCKED" # LOCKED - UNLOCKED - SHUTTINGDOWN
+    operationalState: "ENABLED" # ENABLED - DISABLED
+    coverageArea: "IT" # List of coverage areas, e.g., ["IT"]
     sstSnssai:
-      sst: 1  # Integer between 0 and 255
-      sd: "123456"  # String of 6 numbers
-    dnn: "SliceManager"  # DNN identifier
-    priorityLabel: 100  # Integer from 0 to 100
-    ueMobilityLevel: "stationary"  # Options: stationary, nomadic, restricted_mobility, fully_mobility
-    reliability: 99.999  # Reliability as a float from 0 to 100
+      sst: 1 # Integer between 0 and 255
+      sd: "123456" # String of 6 numbers
+    dnn: "SliceManager" # DNN identifier
+    priorityLabel: 100 # Integer from 0 to 100
+    ueMobilityLevel: "stationary" # Options: stationary, nomadic, restricted_mobility, fully_mobility
+    reliability: 99.999 # Reliability as a float from 0 to 100
     maxPacketSize:
-      maximumSize: 150  # Max packet size in bytes
+      maximumSize: 150 # Max packet size in bytes
     latency:
-      dl: 10  # DL latency in milliseconds
-      ul: 10  # UL latency in milliseconds
-    delayToleranceSupport: "NOT_SUPPORTED"  # Options: SUPPORTED, NOT_SUPPORTED
+      dl: 10 # DL latency in milliseconds
+      ul: 10 # UL latency in milliseconds
+    delayToleranceSupport: "NOT_SUPPORTED" # Options: SUPPORTED, NOT_SUPPORTED
     deterministicCommunication:
       dl:
-        availability: "SUPPORTED"  # Options: SUPPORTED, NOT_SUPPORTED
-        periodicity: 10  # DL periodicity in milliseconds
+        availability: "SUPPORTED" # Options: SUPPORTED, NOT_SUPPORTED
+        periodicity: 10 # DL periodicity in milliseconds
       ul:
-        availability: "SUPPORTED"  # Options: SUPPORTED, NOT_SUPPORTED
-        periodicity: 10  # UL periodicity in milliseconds
+        availability: "SUPPORTED" # Options: SUPPORTED, NOT_SUPPORTED
+        periodicity: 10 # UL periodicity in milliseconds
     dlThroughputPerUE:
-      guaranteedThroughput: 240  # Guaranteed DL throughput per UE in kbit/s
-      maximumThroughput: 600  # Maximum DL throughput per UE in kbit/s
+      guaranteedThroughput: 240 # Guaranteed DL throughput per UE in kbit/s
+      maximumThroughput: 600 # Maximum DL throughput per UE in kbit/s
     ulThroughputPerUE:
-      guaranteedThroughput: 240  # Guaranteed UL throughput per UE in kbit/s
-      maximumThroughput: 600  # Maximum UL throughput per UE in kbit/s
+      guaranteedThroughput: 240 # Guaranteed UL throughput per UE in kbit/s
+      maximumThroughput: 600 # Maximum UL throughput per UE in kbit/s
     # Optional Throughput for the entire slice (if required, uncomment)
     dlThroughputPerSlice:
-      guaranteedThroughput: 1000  # Guaranteed DL throughput per slice in kbit/s
-      maximumThroughput: 2000  # Maximum DL throughput per slice in kbit/s
+      guaranteedThroughput: 1000 # Guaranteed DL throughput per slice in kbit/s
+      maximumThroughput: 2000 # Maximum DL throughput per slice in kbit/s
     ulThroughputPerSlice:
-      guaranteedThroughput: 1000  # Guaranteed UL throughput per slice in kbit/s
-      maximumThroughput: 2000  # Maximum UL throughput per slice in kbit/s
-    termDensity: 10  # UE density per antenna
-    maxNumberOfPduSessions: 20  # Max PDU sessions per UPF (range 0-20 or 255)
-    maxNumberOfUes: 25  # Maximum number of UEs
-    n6Protection: "[{\"type\":\"PCC Rule\",\"name\":\"rule_any\"}]"
+      guaranteedThroughput: 1000 # Guaranteed UL throughput per slice in kbit/s
+      maximumThroughput: 2000 # Maximum UL throughput per slice in kbit/s
+    termDensity: 10 # UE density per antenna
+    maxNumberOfPduSessions: 20 # Max PDU sessions per UPF (range 0-20 or 255)
+    maxNumberOfUes: 25 # Maximum number of UEs
+    n6Protection: '[{"type":"PCC Rule","name":"rule_any"}]'
 
-  network-slice-enforcement:
+  itav-netslice-enforcement:
     retryOnFail: true
     maxRetries: 5
     waitTimeBeforeRetrying: 10

@@ -1,13 +1,12 @@
+# -*- coding: utf-8 -*-
+# @Author: Rafael Direito
+# @Date:   2024-10-09 13:35:42
+# @Last Modified by:   Rafael Direito
+# @Last Modified time: 2025-06-21 16:26:12
 import kopf
-import json
-from kubernetes import client, config, watch
-from kubernetes.client import CoreV1Api
-from kubernetes.client.models.v1_pod import V1Pod
-from kubernetes.client.models.v1_container_status import V1ContainerStatus
-import time
-
+from kubernetes import client, config
 from config import Config
-from nslice_cr_handler import NSliceCRHandler
+from netslice_cr_handler import NetSliceCRHandler
 from itav_network_slice_manager import ITAvNetworkSliceManager
 
 # Set up logging
@@ -52,8 +51,12 @@ def main():
 if __name__ == '__main__':
     v1 = kubeconfig()
     custom_api = client.CustomObjectsApi()
-    nslice_cr_handler = NSliceCRHandler(
-        ITAvNetworkSliceManager(Config.slice_manager_base_url),
+    nslice_cr_handler = NetSliceCRHandler(
+        ITAvNetworkSliceManager(
+            Config.slice_manager_base_url,
+            Config.slice_manager_username,
+            Config.slice_manager_password
+        ),
         custom_api
     )
     main()

@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+# @Author: Rafael Direito
+# @Date:   2024-10-09 13:35:42
+# @Last Modified by:   Rafael Direito
+# @Last Modified time: 2025-06-21 16:20:52
 import logging
 import os
 import sys
@@ -9,6 +14,8 @@ class Config():
     cr_plural = os.getenv('CR_PLURAL')
     # Set up the slice manager
     slice_manager_base_url = os.getenv("SLICE_MANAGER_BASE_URL")
+    slice_manager_username = os.getenv("SLICE_MANAGER_USERNAME")
+    slice_manager_password = os.getenv("SLICE_MANAGER_PASSWORD")
     logger = None
     
     # Logging
@@ -28,7 +35,9 @@ class Config():
             handler.setLevel(log_level)
 
             # Create a formatter and add it to the handler
-            formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+            formatter = logging.Formatter(
+                '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+            )
             handler.setFormatter(formatter)
 
             # Add the handler to the logger

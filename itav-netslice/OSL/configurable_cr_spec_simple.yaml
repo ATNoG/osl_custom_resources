@@ -1,9 +1,43 @@
 apiVersion: av.it.pt/v1
-kind: NetworkSlice
-metadata:
-  name: slice-manager
+kind: ITAvNetSlice
 spec:
-  id: '%s'
-  administrativeState: '%s'
-  operationalState: '%s'
-  coverageArea: '%s'
+  itav-netslice:
+    id: "%s" # Identifier without disallowed characters
+    administrativeState: "%s" # LOCKED - UNLOCKED - SHUTTINGDOWN
+    operationalState: "%s" # ENABLED - DISABLED
+    coverageArea: "%s" # List of coverage areas, e.g., ["IT"]
+    sstSnssai:
+      sst: %s # Integer between 0 and 255
+      sd: "%s" # String of 6 numbers
+    dnn: "%s" # DNN identifier
+    priorityLabel: %s # Integer from 0 to 100
+    ueMobilityLevel: %s # Options: stationary, nomadic, restricted_mobility, fully_mobility
+    reliability: %s # Reliability as a float from 0 to 100
+    maxPacketSize:
+      maximumSize: %s # Max packet size in bytes
+    latency:
+      dl: %s # DL latency in milliseconds
+      ul: %s # UL latency in milliseconds
+    delayToleranceSupport: "%s" # Options: SUPPORTED, NOT_SUPPORTED
+    deterministicCommunication:
+      dl:
+        availability: "%s" # Options: SUPPORTED, NOT_SUPPORTED
+        periodicity: %s # DL periodicity in milliseconds
+      ul:
+        availability: "%s" # Options: SUPPORTED, NOT_SUPPORTED
+        periodicity: %s # UL periodicity in milliseconds
+    dlThroughputPerUE:
+      guaranteedThroughput: %s # Guaranteed DL throughput per UE in kbit/s
+      maximumThroughput: %s # Maximum DL throughput per UE in kbit/s
+    ulThroughputPerUE:
+      guaranteedThroughput: %s # Guaranteed UL throughput per UE in kbit/s
+      maximumThroughput: %s # Maximum UL throughput per UE in kbit/s
+    termDensity: %s # UE density per antenna
+    maxNumberOfPduSessions: %s # Max PDU sessions per UPF (range 0-20 or 255)
+    maxNumberOfUes: %s # Maximum number of UEs
+    n6Protection: '%s'
+
+  itav-netslice-enforcement:
+    retryOnFail: %s
+    maxRetries: %s
+    waitTimeBeforeRetrying: %s

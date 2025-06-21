@@ -1,34 +1,39 @@
+# -*- coding: utf-8 -*-
+# @Author: Rafael Direito
+# @Date:   2024-10-09 13:39:26
+# @Last Modified by:   Rafael Direito
+# @Last Modified time: 2025-06-21 16:36:30
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: nslice-op
-  name: itav-slice-manager-client
+  name: itav-netslice-op
+  namespace: itav-slice-manager-client
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: nslice-op-cluster-role
-  name: itav-slice-manager-client
+  name: itav-netslice-op-cluster-role
+  namespace: itav-slice-manager-client
 rules:
   - apiGroups: [""]
     resources: ["events"]
     verbs: ["get", "list", "watch", "patch", "create", "update"]
-    
+
   # Permissions for the custom resources (CRs)
   - apiGroups: ["av.it.pt"]
-    resources: ["networkslices"]
+    resources: ["itav-netslices"]
     verbs: ["get", "list", "watch", "patch", "create", "update", "delete"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: nslice-op-cluster-role-binding
+  name: itav-netslice-op-cluster-role-binding
 subjects:
   - kind: ServiceAccount
-    name: nslice-op
-    name: itav-slice-manager-client 
+    name: itav-netslice-op
+    namespace: itav-slice-manager-client
 roleRef:
   kind: ClusterRole
-  name: nslice-op-cluster-role
+  name: itav-netslice-op-cluster-role
   apiGroup: rbac.authorization.k8s.io

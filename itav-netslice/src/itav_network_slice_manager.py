@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+# @Author: Rafael Direito
+# @Date:   2024-10-11 14:15:50
+# @Last Modified by:   Rafael Direito
+# @Last Modified time: 2025-06-21 16:57:02
 from datetime import datetime, timezone
 from datetime import datetime, timezone
 import requests
@@ -15,14 +20,16 @@ class ITAvNetworkSliceManager:
     # Set up logging
     #logger = Config.setup_logging()
 
-    def __init__(self, base_url: str):
+    def __init__(self, base_url, username, password):
         self.base_url = base_url
+        self.username = username
+        self.password = password
 
     def enforce_network_slice(self, spec: dict, payload: dict):
 
         logger.info("Checking if the network slice should be enforced...")
 
-        enforcement_data = spec["network-slice-enforcement"]
+        enforcement_data = spec["itav-netslice-enforcement"]
 
         # If Network Slice was already enforced, return
         if enforcement_data.get("success"):
@@ -99,8 +106,9 @@ class ITAvNetworkSliceManager:
                 headers= {
                     'Content-Type': 'application/json'
                 },
+                auth=(self.username, self.password),
                 data= json.dumps(payload),
-                timeout=10
+                timeout=300
             )
                         
             if response.status_code == 201:
