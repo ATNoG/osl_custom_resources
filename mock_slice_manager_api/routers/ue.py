@@ -2,8 +2,7 @@
 # @Author: Rafael Direito
 # @Date:   2025-06-21 10:49:45
 # @Last Modified by:   Rafael Direito
-# @Last Modified time: 2025-06-21 11:26:25
-# generic imports
+# @Last Modified time: 2025-06-21 16:08:41
 
 from fastapi import APIRouter, Header, status, Depends
 from fastapi.security import HTTPBasicCredentials
