@@ -1,81 +1,91 @@
+# -*- coding: utf-8 -*-
+# @Author: Rafael Direito
+# @Date:   2024-10-11 16:29:17
+# @Last Modified by:   Rafael Direito
+# @Last Modified time: 2025-06-21 10:09:16
 # Fully Generated with AI
 
-from fastapi import FastAPI, Header, HTTPException, status
-from pydantic import BaseModel
-from typing import List, Optional
+from fastapi import FastAPI, Header, HTTPException, status, Depends
+from fastapi.security import HTTPBasic, HTTPBasicCredentials
+from typing import Optional
 from fastapi.responses import JSONResponse
+
+from auth.auth import authenticate
+from schemas import netslice as netslice_schemas
+from schemas import ue as ue_schemas 
 
 app = FastAPI()
 
 # Define the N6Protection model with additional optional fields
-class N6Protection(BaseModel):
-    type: Optional[str] = None
-    name: Optional[str] = None
-    priority: Optional[int] = None
-    ServerIP: Optional[str] = None
-    MaskLen: Optional[int] = None
-    startport: Optional[int] = None
-    endport: Optional[int] = None
-    ULGBR: Optional[int] = None
-    DLGBR: Optional[int] = None
-    ULMBR: Optional[int] = None
-    DLMBR: Optional[int] = None
-    Protocol: Optional[str] = None
-    PassBlock: Optional[str] = None
-
-# Define the ProductOrder model with all fields optional
-class ProductOrder(BaseModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    administrative_state: Optional[str] = None
-    operational_state: Optional[str] = None
-    coverage_area: Optional[List[str]] = None
-    sst: Optional[int] = None
-    sd: Optional[str] = None
-    dnn: Optional[str] = None
-    prioritylabel: Optional[int] = None
-    uemobilitylevel: Optional[str] = None
-    reliability: Optional[float] = None
-    ulmaxpktsize: Optional[int] = None
-    dllatency: Optional[int] = None
-    ullatency: Optional[int] = None
-    delaytolerance: Optional[str] = None
-    dldeterministiccomm: Optional[str] = None
-    dldeterminperiodicity: Optional[int] = None
-    uldeterministiccomm: Optional[str] = None
-    uldeterminperiodicity: Optional[int] = None
-    dlguathptperue: Optional[int] = None
-    ulguathptperue: Optional[int] = None
-    dlmaxthptperue: Optional[int] = None
-    ulmaxthptperue: Optional[int] = None
-    dlguathptperslice: Optional[int] = None
-    ulguathptperslice: Optional[int] = None
-    dlmaxthptperslice: Optional[int] = None
-    ulmaxthptperslice: Optional[int] = None
-    termdensity: Optional[int] = None
-    maxnumberofpdusessions: Optional[int] = None
-    maxnumberofues: Optional[int] = None
-    n6protection: Optional[List[N6Protection]] = []
-    kpi: Optional[List[str]] = []
-
-class ProductOrderUE(BaseModel):
-    IMSI: int
-    numIMSIs: int 
-    slice: str 
-    IPV4: str
-    IPV6: str
-    AMDATA: bool
-    DEFAULT: str
-    UEcanSendSNSSAI: str
-    AMBRUP: Optional[int] = None
-    AMBRDW: Optional[int] = None
+#class N6Protection(BaseModel):
+#    type: Optional[str] = None
+#    name: Optional[str] = None
+#    priority: Optional[int] = None
+#    ServerIP: Optional[str] = None
+#    MaskLen: Optional[int] = None
+#    startport: Optional[int] = None
+#    endport: Optional[int] = None
+#    ULGBR: Optional[int] = None
+#    DLGBR: Optional[int] = None
+#    ULMBR: Optional[int] = None
+#    DLMBR: Optional[int] = None
+#    Protocol: Optional[str] = None
+#    PassBlock: Optional[str] = None
+#
+## Define the ProductOrder model with all fields optional
+#class ProductOrder(BaseModel):
+#    id: Optional[str] = None
+#    name: Optional[str] = None
+#    administrative_state: Optional[str] = None
+#    operational_state: Optional[str] = None
+#    coverage_area: Optional[List[str]] = None
+#    sst: Optional[int] = None
+#    sd: Optional[str] = None
+#    dnn: Optional[str] = None
+#    prioritylabel: Optional[int] = None
+#    uemobilitylevel: Optional[str] = None
+#    reliability: Optional[float] = None
+#    ulmaxpktsize: Optional[int] = None
+#    dllatency: Optional[int] = None
+#    ullatency: Optional[int] = None
+#    delaytolerance: Optional[str] = None
+#    dldeterministiccomm: Optional[str] = None
+#    dldeterminperiodicity: Optional[int] = None
+#    uldeterministiccomm: Optional[str] = None
+#    uldeterminperiodicity: Optional[int] = None
+#    dlguathptperue: Optional[int] = None
+#    ulguathptperue: Optional[int] = None
+#    dlmaxthptperue: Optional[int] = None
+#    ulmaxthptperue: Optional[int] = None
+#    dlguathptperslice: Optional[int] = None
+#    ulguathptperslice: Optional[int] = None
+#    dlmaxthptperslice: Optional[int] = None
+#    ulmaxthptperslice: Optional[int] = None
+#    termdensity: Optional[int] = None
+#    maxnumberofpdusessions: Optional[int] = None
+#    maxnumberofues: Optional[int] = None
+#    n6protection: Optional[List[N6Protection]] = []
+#    kpi: Optional[List[str]] = []
+#
+#class ProductOrderUE(BaseModel):
+#    IMSI: int
+#    numIMSIs: int 
+#    slice: str 
+#    IPV4: str
+#    IPV6: str
+#    AMDATA: bool
+#    DEFAULT: str
+#    UEcanSendSNSSAI: str
+#    AMBRUP: Optional[int] = None
+#    AMBRDW: Optional[int] = None
 
 
 
 @app.post("/productOrder/post")
 async def create_product_order(
-    product_order: ProductOrder,
-    authorization: Optional[str] = Header(None)
+    product_order: netslice_schemas.ProductOrder,
+    authorization: Optional[str] = Header(None),
+    credentials: HTTPBasicCredentials = Depends(authenticate)
 ):
     # Convert product_order to a dictionary, including empty lists and dicts but excluding None
     # Cast non-list and non-dict values to strings
@@ -115,8 +125,9 @@ async def create_product_order(
 
 @app.post("/UE/post")
 async def create_ue(
-    ue: ProductOrderUE,
-    authorization: Optional[str] = Header(None)
+    ue: ue_schemas.UE,
+    authorization: Optional[str] = Header(None),
+    credentials: HTTPBasicCredentials = Depends(authenticate)
 ):
     filtered_ue = {key: value for key, value in ue.dict().items()}
 
