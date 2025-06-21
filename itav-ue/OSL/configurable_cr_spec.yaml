@@ -1,0 +1,29 @@
+# -*- coding: utf-8 -*-
+# @Author: Rafael Direito
+# @Date:   2024-10-27 09:32:23
+# @Last Modified by:   Rafael Direito
+# @Last Modified time: 2025-06-21 12:05:24
+apiVersion: av.it.pt/v1
+kind: ITAvUE
+metadata:
+  name: itav-ue
+spec:
+  itav-ue:
+    supi: "%s"
+    requestedNSSAI:
+      sst: %s
+      sd: "%s"
+    defaultNSSAI:
+      sst: %s
+      sd: "%s"
+    dnn: "%s"
+    pduSession:
+      type: "%s"
+    sessionAmbr:
+      uplink: %s
+      downlink: %s
+
+  itav-ue-enforcement:
+    retryOnFail: %s
+    maxRetries: %s
+    waitTimeBeforeRetrying: %s

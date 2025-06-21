@@ -1,0 +1,119 @@
+# -*- coding: utf-8 -*-
+# @Author: Rafael Direito
+# @Date:   2024-10-25 10:32:58
+# @Last Modified by:   Rafael Direito
+# @Last Modified time: 2025-06-21 10:33:09
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: {{ .Values.customResource.plural }}.{{ .Values.customResource.group }}
+  labels:
+  {{- include "itav-ue-op-chart.labels" . | nindent 4 }}
+spec:
+  group: {{ quote .Values.customResource.group }}
+  names:
+    plural: {{ quote .Values.customResource.plural }}
+    singular: {{ quote .Values.customResource.singular }}
+    kind: {{ quote .Values.customResource.kind }}
+    shortNames: {{ toYaml .Values.customResource.shortNames | nindent 6 }}
+  scope: Namespaced
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                itav-ue: 
+                  type: object
+                  properties:
+                    supi:
+                      type: string
+                    requestedNSSAI:
+                      type: object
+                      properties:
+                        sst:
+                          type: integer
+                        sd:
+                          type: string
+                    defaultNSSAI:
+                      type: object
+                      properties:
+                        sst:
+                          type: integer
+                        sd:
+                          type: string
+                    dnn:
+                      type: string
+                    pduSession:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          default: "IPv4v6"
+                        ipV4:
+                          type: string
+                          default: ""
+                        ipV6:
+                          type: string
+                          default: ""
+                    sessionAmbr:
+                      type: object
+                      properties:
+                        uplink:
+                          type: integer
+                          description: "Defines maximum throughput of UE in Uplink only works"
+                        downlink:
+                          type: integer
+                          description: "Defines maximum throughput of UE in Downlink only works"
+                  required:
+                    - supi
+                    - dnn
+                itav-ue-enforcement: 
+                  type: object
+                  additionalProperties: true
+                  properties:
+                    retryOnFail:
+                      type: boolean
+                      description: "Indicates if the system should retry upon failure."
+                      default: false
+                #    currentRetries:
+                #      type: integer
+                #      description: "The number of retries attempted so far."
+                #      default: 0
+                    maxRetries:
+                      type: integer
+                      description: "The maximum number of retries allowed."
+                      default: 0
+                    waitTimeBeforeRetrying:
+                      type: integer
+                      description: "The time in seconds to wait before each retry."
+                      default: 30
+                #    success:
+                #      type: boolean
+                #      description: "If the Network Slice enforcement was successful"
+                    sliceManagerResponse:
+                      type: object
+                      additionalProperties: true
+                      description: "Response message from the slice manager upon last attempt."
+                      properties:
+                        success:
+                          type: boolean
+                        payload:
+                          type: string
+                        message:
+                          type: string
+                #    lastOperationTimestamp:
+                #      type: string
+                #      format: date-time
+                #      description: "Timestamp of the last operation attempt."
+                #    firstOperationTimestamp:
+                #      type: string
+                #      format: date-time
+                #      description: "Timestamp of the first operation attempt."
+              required:
+                - itav-ue
