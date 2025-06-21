@@ -1,21 +1,26 @@
+# -*- coding: utf-8 -*-
+# @Author: Rafael Direito
+# @Date:   2024-10-25 10:32:58
+# @Last Modified by:   Rafael Direito
+# @Last Modified time: 2025-06-21 10:31:51
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: '{{ include "nslice-ue-op-chart.fullname" . }}-deployment'
+  name: '{{ include "itav-ue-op-chart.fullname" . }}-deployment'
   namespace: {{ .Release.Namespace }}
   labels:
-  {{- include "nslice-ue-op-chart.labels" . | nindent 4 }}
+  {{- include "itav-ue-op-chart.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.deployment.replicas }}
   selector:
     matchLabels:
-      app: nslice-ue-op
-    {{- include "nslice-ue-op-chart.selectorLabels" . | nindent 6 }}
+      app: itav-ue-op
+    {{- include "itav-ue-op-chart.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: nslice-ue-op
-      {{- include "nslice-ue-op-chart.selectorLabels" . | nindent 8 }}
+        app: itav-ue-op
+      {{- include "itav-ue-op-chart.selectorLabels" . | nindent 8 }}
     spec:
       containers:
       - command:
@@ -35,7 +40,7 @@ spec:
         - name: KUBERNETES_CLUSTER_DOMAIN
           value: {{ quote .Values.kubernetesClusterDomain }}
         image:  '{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag | default .Chart.AppVersion }}'
-        name: nslice-ue-op-container
+        name: itav-ue-op-container
         resources: {}
       restartPolicy: Always
-      serviceAccountName: '{{ include "nslice-ue-op-chart.fullname" . }}-svc-account'
+      serviceAccountName: '{{ include "itav-ue-op-chart.fullname" . }}-svc-account'

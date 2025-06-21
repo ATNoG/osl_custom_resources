@@ -1,9 +1,14 @@
+# -*- coding: utf-8 -*-
+# @Author: Rafael Direito
+# @Date:   2024-10-25 10:32:58
+# @Last Modified by:   Rafael Direito
+# @Last Modified time: 2025-06-21 10:33:09
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   name: {{ .Values.customResource.plural }}.{{ .Values.customResource.group }}
   labels:
-  {{- include "nslice-ue-op-chart.labels" . | nindent 4 }}
+  {{- include "itav-ue-op-chart.labels" . | nindent 4 }}
 spec:
   group: {{ quote .Values.customResource.group }}
   names:
@@ -23,7 +28,7 @@ spec:
             spec:
               type: object
               properties:
-                network-slice-ue: 
+                itav-ue: 
                   type: object
                   properties:
                     supi:
@@ -68,7 +73,7 @@ spec:
                   required:
                     - supi
                     - dnn
-                network-slice-ue-enforcement: 
+                itav-ue-enforcement: 
                   type: object
                   additionalProperties: true
                   properties:
@@ -111,4 +116,4 @@ spec:
                 #      format: date-time
                 #      description: "Timestamp of the first operation attempt."
               required:
-                - network-slice-ue
+                - itav-ue

@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+# @Author: Rafael Direito
+# @Date:   2024-10-25 08:10:27
+# @Last Modified by:   Rafael Direito
+# @Last Modified time: 2025-06-21 10:27:02
 import kopf
 import json
 from kubernetes import client, config, watch
@@ -7,7 +12,7 @@ from kubernetes.client.models.v1_container_status import V1ContainerStatus
 import time
 
 from config import Config
-from nslice_ue_cr_handler import NSliceUECRHandler
+from ue_cr_handler import UECRHandler
 from itav_network_slice_manager import ITAvNetworkSliceManager
 
 # Set up logging
@@ -52,8 +57,12 @@ def main():
 if __name__ == '__main__':
     v1 = kubeconfig()
     custom_api = client.CustomObjectsApi()
-    nslice_cr_handler = NSliceUECRHandler(
-        ITAvNetworkSliceManager(Config.slice_manager_base_url),
+    nslice_cr_handler = UECRHandler(
+        ITAvNetworkSliceManager(
+            Config.slice_manager_base_url,
+            Config.slice_manager_username,
+            Config.slice_manager_password
+        ),
         custom_api
     )
     main()

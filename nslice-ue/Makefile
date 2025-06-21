@@ -1,13 +1,13 @@
 # Variables
-LOCAL_IMAGE_NAME = ns-ue-operator
+LOCAL_IMAGE_NAME = itav-ue-operator
 LOCAL_TAG = latest
 
-DOCKER_REPOSITORY_IMAGE_NAME = nslice-ue-op
+DOCKER_REPOSITORY_IMAGE_NAME = itav-ue-op
 DOCKER_REPOSITORY_TAG = latest
-HELM_CHART_NAME = nslice-ue-op-chart
+HELM_CHART_NAME = itav-ue-op-chart
 REPOSITORY_HOST = atnog-harbor.av.it.pt/atnog
 
-HELM_CHART_NAME = nslice-ue-op-chart
+HELM_CHART_NAME = itav-ue-op-chart
 REPOSITORY_HOST = atnog-harbor.av.it.pt/atnog
 
 KUBECONFIG ?= /etc/rancher/k3s/k3s.yaml 
@@ -42,7 +42,7 @@ terminate-local-testing-environment:
 	kubectl delete -f ./cr/crd.yaml && kubectl delete -f ./k8s/operator-namespace.yaml && kubectl delete -f ./k8s/operator-role.yaml
 
 run-local:
-	. src/venv/bin/activate && CR_GROUP="av.it.pt" CR_VERSION="v1" CR_PLURAL="networkslice-ues" SLICE_MANAGER_BASE_URL="http://10.255.28.141:8000" python3 src/k8s_operator.py
+	. src/venv/bin/activate && CR_GROUP="av.it.pt" CR_VERSION="v1" CR_PLURAL="itav-ues" SLICE_MANAGER_BASE_URL="http://10.255.28.141:8000" SLICE_MANAGER_USERNAME="admin" SLICE_MANAGER_PASSWORD="password" python3 src/k8s_operator.py
 
 
 # K8S Manifests
@@ -50,10 +50,10 @@ create-operator:
 	kubectl apply -f ./cr/crd.yaml && kubectl apply -f ./k8s/operator-namespace.yaml && kubectl apply -f ./k8s/
 
 get-operator-pods:
-	kubectl get pods -n $(NAMESPACE) -l app=nslice-ue-op -o jsonpath="{.items[0].metadata.name}" 
+	kubectl get pods -n $(NAMESPACE) -l app=itav-ue-op -o jsonpath="{.items[0].metadata.name}" 
 
 get-operator-logs:
-	kubectl logs -f $$(kubectl get pods -n $(NAMESPACE)  -l app=nslice-ue-op -o jsonpath="{.items[0].metadata.name}") -n $(NAMESPACE) 
+	kubectl logs -f $$(kubectl get pods -n $(NAMESPACE)  -l app=itav-ue-op -o jsonpath="{.items[0].metadata.name}") -n $(NAMESPACE) 
 
 delete-operator:
 	kubectl delete -f ./k8s || true
@@ -68,6 +68,9 @@ delete-crd:
 
 create-cr:
 	kubectl apply -f ./cr/cr.yaml
+
+describe-cr:
+	kubectl describe itav-ue itav-ue
 
 delete-cr:
 	kubectl delete -f ./cr/cr.yaml || true

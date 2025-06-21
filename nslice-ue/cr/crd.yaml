@@ -1,15 +1,20 @@
+# -*- coding: utf-8 -*-
+# @Author: Rafael Direito
+# @Date:   2024-10-22 15:55:54
+# @Last Modified by:   Rafael Direito
+# @Last Modified time: 2025-06-21 10:42:05
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
-  name: networkslice-ues.av.it.pt
+  name: itav-ues.av.it.pt
 spec:
   group: av.it.pt
   names:
-    plural: networkslice-ues
-    singular: networkslice-ue
-    kind: NetworkSliceUE
+    plural: itav-ues
+    singular: itav-ue
+    kind: ITAvUE
     shortNames:
-      - nslice-ue
+      - itav-ue
   scope: Namespaced
   versions:
     - name: v1
@@ -22,7 +27,7 @@ spec:
             spec:
               type: object
               properties:
-                network-slice-ue: 
+                itav-ue:
                   type: object
                   properties:
                     supi:
@@ -67,7 +72,7 @@ spec:
                   required:
                     - supi
                     - dnn
-                network-slice-ue-enforcement: 
+                itav-ue-enforcement:
                   type: object
                   additionalProperties: true
                   properties:
@@ -75,10 +80,10 @@ spec:
                       type: boolean
                       description: "Indicates if the system should retry upon failure."
                       default: false
-                #    currentRetries:
-                #      type: integer
-                #      description: "The number of retries attempted so far."
-                #      default: 0
+                    #    currentRetries:
+                    #      type: integer
+                    #      description: "The number of retries attempted so far."
+                    #      default: 0
                     maxRetries:
                       type: integer
                       description: "The maximum number of retries allowed."
@@ -87,9 +92,9 @@ spec:
                       type: integer
                       description: "The time in seconds to wait before each retry."
                       default: 30
-                #    success:
-                #      type: boolean
-                #      description: "If the Network Slice enforcement was successful"
+                    #    success:
+                    #      type: boolean
+                    #      description: "If the Network Slice enforcement was successful"
                     sliceManagerResponse:
                       type: object
                       additionalProperties: true
@@ -110,4 +115,4 @@ spec:
                 #      format: date-time
                 #      description: "Timestamp of the first operation attempt."
               required:
-                - network-slice-ue
+                - itav-ue

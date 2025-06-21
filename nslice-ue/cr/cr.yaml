@@ -1,9 +1,14 @@
+# -*- coding: utf-8 -*-
+# @Author: Rafael Direito
+# @Date:   2024-10-22 15:55:54
+# @Last Modified by:   Rafael Direito
+# @Last Modified time: 2025-06-21 10:41:03
 apiVersion: av.it.pt/v1
-kind: NetworkSliceUE
+kind: ITAvUE
 metadata:
-  name: network-slice-ue
+  name: itav-ue
 spec:
-  network-slice-ue:
+  itav-ue:
     supi: "imsi-123456789012345"
     requestedNSSAI:
       sst: 1
@@ -18,7 +23,7 @@ spec:
       uplink: 4000000
       downlink: 4000000
 
-  network-slice-ue-enforcement:
+  itav-ue-enforcement:
     retryOnFail: true
     maxRetries: 5
     waitTimeBeforeRetrying: 10

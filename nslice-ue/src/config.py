@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+# @Author: Rafael Direito
+# @Date:   2024-10-25 08:10:27
+# @Last Modified by:   Rafael Direito
+# @Last Modified time: 2025-06-21 10:34:59
 import logging
 import os
 import sys
@@ -6,6 +11,8 @@ import sys
 # export CR_VERSION="apiextensions.k8s.io/v1"
 # export CR_PLURAL="networkslice-ues"
 # export SLICE_MANAGER_BASE_URL="http://10.255.28.141:8000"
+# export SLICE_MANAGER_USERNAME="admin"
+# export SLICE_MANAGER_PASSWORD="password"
 
 class Config():
     # Set up custom resources info
@@ -14,6 +21,8 @@ class Config():
     cr_plural = os.getenv('CR_PLURAL')
     # Set up the slice manager
     slice_manager_base_url = os.getenv("SLICE_MANAGER_BASE_URL")
+    slice_manager_username = os.getenv("SLICE_MANAGER_USERNAME")
+    slice_manager_password = os.getenv("SLICE_MANAGER_PASSWORD")
     logger = None
     
     # Logging
@@ -33,7 +42,9 @@ class Config():
             handler.setLevel(log_level)
 
             # Create a formatter and add it to the handler
-            formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+            formatter = logging.Formatter(
+                '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+            )
             handler.setFormatter(formatter)
 
             # Add the handler to the logger

@@ -1,16 +1,24 @@
+# -*- coding: utf-8 -*-
+# @Author: Rafael Direito
+# @Date:   2024-10-25 10:32:58
+# @Last Modified by:   Rafael Direito
+# @Last Modified time: 2025-06-21 10:34:39
 kubernetesClusterDomain: cluster.local
 deployment:
   image:
-    repository: atnog-harbor.av.it.pt/atnog/nslice-ue-op
+    repository: atnog-harbor.av.it.pt/atnog/itav-ue-op
     tag: latest
   replicas: 1
 customResource:
   group: av.it.pt
-  singular: networkslice-ue
-  plural: networkslice-ues
-  kind: NetworkSliceUE
+  singular: itav-ue
+  plural: itav-ues
+  kind: ITAvUE
   shortNames:
-    - nslice-ue
+    - itav-ue
   version: v1
 logLevel: INFO
-sliceManagerBaseUrl: http://10.255.28.141:8000
+sliceManager:
+  baseUrl: http://10.255.28.141:8080
+  username: admin
+  password: password

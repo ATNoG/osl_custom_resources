@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+# @Author: Rafael Direito
+# @Date:   2024-10-25 08:10:27
+# @Last Modified by:   Rafael Direito
+# @Last Modified time: 2025-06-21 10:38:16
 from datetime import datetime, timezone
 from datetime import datetime, timezone
 import requests
@@ -11,18 +16,17 @@ from config import Config
 logger = Config.setup_logging()
 
 class ITAvNetworkSliceManager:
-    
-    # Set up logging
-    #logger = Config.setup_logging()
 
-    def __init__(self, base_url: str):
+    def __init__(self, base_url, username, password):
         self.base_url = base_url
+        self.username = username
+        self.password = password
 
-    def create_network_slice_ue(self, spec: dict, payload: dict):
+    def create_ue(self, spec: dict, payload: dict):
 
         logger.info("Checking if the Network Slice UE should be created...")
 
-        enforcement_data = spec["network-slice-ue-enforcement"]
+        enforcement_data = spec["itav-ue-enforcement"]
 
         # If Network Slice was already enforced, return
         if enforcement_data.get("success"):
@@ -41,7 +45,7 @@ class ITAvNetworkSliceManager:
                 "lastOperationTimestamp": first_operation_ts
             }
             
-            self.create_network_slice_ue_on_manager(
+            self.__create_ue_on_slice_manager(
                 payload, enforcement_result
             )
 
@@ -65,7 +69,7 @@ class ITAvNetworkSliceManager:
                         .isoformat()
                 }
                 
-                self.create_network_slice_ue_on_manager(
+                self.__create_ue_on_slice_manager(
                     payload, enforcement_result
                 )
                 return True, enforcement_result
@@ -83,7 +87,7 @@ class ITAvNetworkSliceManager:
         return False, None
         
     
-    def create_network_slice_ue_on_manager(
+    def __create_ue_on_slice_manager(
             self, payload: dict, enforcement_result: dict
         ):
 
@@ -99,8 +103,9 @@ class ITAvNetworkSliceManager:
                 headers= {
                     'Content-Type': 'application/json'
                 },
+                auth=(self.username, self.password),
                 data= json.dumps(payload),
-                timeout=10
+                timeout=120
             )
                         
             if response.status_code == 201:
