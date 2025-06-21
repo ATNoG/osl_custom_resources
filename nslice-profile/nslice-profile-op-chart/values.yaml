@@ -14,4 +14,4 @@ customResource:
   version: v1
 pollingInterval: 10
 logLevel: INFO
-sliceManagerBaseUrl: https://webhook.site/acaa8378-bab1-49e2-8c3a-d0f3d235df91
+sliceManagerBaseUrl: http://10.16.10.74:8000
